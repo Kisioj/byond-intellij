@@ -1,0 +1,67 @@
+{
+  parserClass="org.byondplugin.parser.DMParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="DM"
+  psiImplClassSuffix="Impl"
+  psiPackage="org.byondplugin.psi"
+  psiImplPackage="org.byondplugin.psi.impl"
+
+  elementTypeHolderClass="org.byondplugin.psi.DMTypes"
+  elementTypeClass="org.byondplugin.psi.DMElementType"
+  tokenTypeClass="org.byondplugin.psi.DMTokenType"
+  
+  tokens =
+  	[
+  	    INTEGER_LITERAL = "regexp:[0-9]+"
+  	    NAME = "regexp:[a-zA-Z_][a-zA-Z0-9_]*"
+  	]
+}
+
+
+DMFile ::= Expression
+
+
+private Expression ::= AssignExpression
+private AssignExpression ::= InExpression [ ('=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '<<=' | '>>=') AssignExpression ]
+private InExpression ::= AsExpression ['in' InExpression]
+private AsExpression ::= TernaryExpression ['as' AsExpression]
+private TernaryExpression ::= LogicOr ['?' TernaryExpression ':' TernaryExpression]
+private LogicOr ::= LoginAnd ['||' LogicOr]
+private LoginAnd ::= BitExpression ['&&' LoginAnd]
+private BitExpression ::= EqExpression [ ('&' | '^' | '|') BitExpression ]
+private EqExpression ::= BitMoveExpression [ ('==' | '!=' | '<>') EqExpression ]
+private BitMoveExpression ::= CompareExpression [ ('<<' | '>>') BitMoveExpression ]
+private CompareExpression ::= AddExpression [ ('<' | '<=' | '>' | '>=') CompareExpression ]
+private AddExpression ::= MultExpression [ ('+' | '-') AddExpression ]
+private MultExpression ::= PowerExpression [ ('*' | '/' | '%') MultExpression ]
+private PowerExpression ::= UnaryExpression [ '**' PowerExpression ]
+// private UnaryExpression ::= TrailerExpression [ ('~' | '!' | '-' | '++' | '--') UnaryExpression ]
+private UnaryExpression ::= Value [ ('~' | '!' | '-' | '++' | '--') UnaryExpression ]
+
+
+BracketExpression ::= '(' Expression ')'
+Value ::= INTEGER_LITERAL | BracketExpression
+
+
+
+
+/*
+private Expression ::= LogicAnd [ "||" Expression ]
+private LogicAnd   ::= BitOr [ "&&" LogicAnd ]
+private BitOr      ::= BitAnd [ "|" BitOr ]
+private BitAnd     ::= Equal [ "&" BitAnd ]
+private Equal      ::= Comparison [ ( "==" | "!=" ) Equal ]
+private Comparison ::= BitShift [ ( "<" | ">" | "<=" | ">=" ) Comparison ]
+private BitShift   ::= Add [ ( "<<" | ">>" ) BitShift ]
+private Add        ::= Mult [ ( "+" | "-" ) Add ]
+private Mult       ::= Unary [ ( "*" | "/" | "%" ) Mult ]
+private Unary      ::= [ "-" | "!" | "~" | "+" ] SimpleValue
+
+private SimpleValue      ::= INTEGER_LITERAL
+
+
+ReferenceNode ::=  NAME
+NameNode ::= NAME
+*/
