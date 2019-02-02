@@ -1,2 +1,10 @@
+out/*
 *.pyc
 .idea
+*.tokens
+*.interp
+*.class
+gen/org/byondplugin/DMBaseListener.java
+gen/org/byondplugin/DMListener.java
+gen/org/byondplugin/DMBaseVisitor.java
+gen/org/byondplugin/DMVisitor.java
