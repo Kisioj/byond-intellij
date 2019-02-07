@@ -1,15 +1,5 @@
 grammar DM;
 
-/*
-antlr4 DM.g4 -o gen
-javac gen/DM*.java
-cd gen
-grun DM startRule ../testfile.dm -gui
-cd ..
-*/
-
-// https://intellij-support.jetbrains.com/hc/en-us/community/posts/206103369-Using-ANTLR-v4-to-lex-parse-custom-file-formats
-
 @lexer::members {
   // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
   private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
@@ -77,68 +67,66 @@ cd ..
   }
 }
 
-tokens { INDENT, DEDENT }  // if usinbg this, grun shows token name as <23> instead of <INDENT>
-//INDENT: ('DUPAJASIA1'|'JASIADUPA1');
-//DEDENT: ('DUPAJASIA2'|'JASIADUPA2');
+tokens { INDENT, DEDENT }
 
 
 NEWLINE
  : ( {atStartOfInput()}?   SPACES
    | ( '\r'? '\n' | '\r' | '\f' ) SPACES?
    )
-   {
-     String newLine = getText().replaceAll("[^\r\n\f]+", "");
-     String spaces = getText().replaceAll("[\r\n\f]+", "");
-     CommonToken ct;
+    {
+        String newLine = getText().replaceAll("[^\r\n\f]+", "");
+        String spaces = getText().replaceAll("[\r\n\f]+", "");
+        CommonToken ct;
 
-     int next = _input.LA(1);
-     if (opened > 0 || next == '\r' || next == '\n' || next == '\f') {
-       skip();
-       //emitHiddenToken(getText());
-
-     } else if (next == '/' ) {
-        next = _input.LA(2);
-        if (next == '/' || next == '*') {
+        int next = _input.LA(1);
+        if (opened > 0 || next == '\r' || next == '\n' || next == '\f') {
             skip();
             //emitHiddenToken(getText());
+
+        } else if (next == '/' ) {
+            next = _input.LA(2);
+            if (next == '/' || next == '*') {
+                skip();
+                //emitHiddenToken(getText());
+            }
         }
-     }
-     else {
-       int startIndex = this._tokenStartCharIndex;
-       int startIndexSpaces = startIndex + newLine.length();
+        else {
+            int startIndex = this._tokenStartCharIndex;
+            int startIndexSpaces = startIndex + newLine.length();
 
-       ct = commonToken(DMParser.NEWLINE, newLine, startIndex);
-       ct.setLine(this._tokenStartLine);
-       ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
-       ct.setText("<NEWLINEz>");
-       emit(ct);
+            ct = commonToken(DMParser.NEWLINE, newLine, startIndex);
+            ct.setLine(this._tokenStartLine);
+            ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
+            //ct.setText("<NEWLINEz>");
+            emit(ct);
 
-       int indent = spaces.length();
-       int previous = indents.isEmpty() ? 0 : indents.peek();
-       if (indent == previous) {
-         skip();
-         //emitHiddenToken(getText());
-       }
-       else if (indent > previous) {
-         for(int i=0; i < (indent-previous); ++i) {
-           indents.push(indent);
-           ct = commonToken(DMParser.INDENT, spaces, startIndexSpaces);
-           ct.setText("<INDENT>");
-           ct.setCharPositionInLine(0);
-           emit(ct);
-         }
-       }
-       else {
-         for(int i=0; i < (previous-indent); ++i) {
-           ct = commonToken(DMParser.DEDENT, spaces, startIndexSpaces);
-           ct.setText("<DEDENT>");
-           ct.setCharPositionInLine(0);
-           emit(ct);
-           indents.pop();
-         }
-       }
-     }
-   }
+            int indent = spaces.length();
+            int previous = indents.isEmpty() ? 0 : indents.peek();
+            if (indent == previous) {
+                skip();
+                //emitHiddenToken(getText());
+            }
+            else if (indent > previous) {
+                for(int i=0; i < (indent-previous); ++i) {
+                    indents.push(indent);
+                    ct = commonToken(DMParser.INDENT, spaces, startIndexSpaces);
+                    //ct.setText("<INDENT>");
+                    ct.setCharPositionInLine(0);
+                    emit(ct);
+                }
+            }
+            else {
+                for(int i=0; i < (previous-indent); ++i) {
+                    ct = commonToken(DMParser.DEDENT, spaces, startIndexSpaces);
+                    ct.setText("<DEDENT>");
+                    ct.setCharPositionInLine(0);
+                    emit(ct);
+                    indents.pop();
+                }
+            }
+        }
+    }
  ;
 
 
@@ -269,7 +257,7 @@ NUMBER
  | FLOAT
  ;
 
-INTEGER
+fragment INTEGER
  : DEC
  | HEX
  | OCT
@@ -288,7 +276,7 @@ fragment NON_ZERO_DIGIT : [1-9];
 fragment HEX_DIGIT : [0-9a-fA-F];
 fragment OCT_DIGIT : [0-7];
 
-FLOAT
+fragment FLOAT
  : DEC '.' DIGIT* EXPONENT?
  | DIGIT+ EXPONENT
  ;

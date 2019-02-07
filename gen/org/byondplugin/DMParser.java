@@ -29,8 +29,7 @@ public class DMParser extends Parser {
 		ASSIGN=62, ADD_ASSIGN=63, SUB_ASSIGN=64, MULT_ASSIGN=65, DIV_ASSIGN=66, 
 		MOD_ASSIGN=67, BIT_AND_ASSIGN=68, BIT_OR_ASSIGN=69, XOR_ASSIGN=70, LEFT_SHIFT_ASSIGN=71, 
 		RIGHT_SHIFT_ASSIGN=72, SEMICOLON=73, NAME=74, STRING_LITERAL=75, ICON_PATH=76, 
-		NUMBER=77, INTEGER=78, FLOAT=79, SPACES=80, COMMENT=81, UNKNOWN_CHAR=82, 
-		INDENT=83, DEDENT=84;
+		NUMBER=77, SPACES=78, COMMENT=79, UNKNOWN_CHAR=80, INDENT=81, DEDENT=82;
 	public static final int
 		RULE_start = 0, RULE_var_stmt = 1, RULE_var_path = 2, RULE_vardef = 3, 
 		RULE_inline_var_stmt = 4, RULE_inline_var_path = 5, RULE_classdef = 6, 
@@ -75,8 +74,8 @@ public class DMParser extends Parser {
 		"BIT_OR", "BIT_XOR", "LOG_AND", "LOG_OR", "ASSIGN", "ADD_ASSIGN", "SUB_ASSIGN", 
 		"MULT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", "BIT_AND_ASSIGN", "BIT_OR_ASSIGN", 
 		"XOR_ASSIGN", "LEFT_SHIFT_ASSIGN", "RIGHT_SHIFT_ASSIGN", "SEMICOLON", 
-		"NAME", "STRING_LITERAL", "ICON_PATH", "NUMBER", "INTEGER", "FLOAT", "SPACES", 
-		"COMMENT", "UNKNOWN_CHAR", "INDENT", "DEDENT"
+		"NAME", "STRING_LITERAL", "ICON_PATH", "NUMBER", "SPACES", "COMMENT", 
+		"UNKNOWN_CHAR", "INDENT", "DEDENT"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -3747,7 +3746,7 @@ public class DMParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3V\u01d6\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3T\u01d6\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -3794,26 +3793,26 @@ public class DMParser extends Parser {
 		"\u01c4\3\2\2\2F\u01c6\3\2\2\2H\u01cc\3\2\2\2J\u01d3\3\2\2\2LQ\5\4\3\2"+
 		"MQ\5\22\n\2NQ\5\16\b\2OQ\7\3\2\2PL\3\2\2\2PM\3\2\2\2PN\3\2\2\2PO\3\2\2"+
 		"\2QT\3\2\2\2RP\3\2\2\2RS\3\2\2\2S\3\3\2\2\2TR\3\2\2\2UV\7\r\2\2VW\7\3"+
-		"\2\2WY\7U\2\2XZ\5\6\4\2YX\3\2\2\2Z[\3\2\2\2[Y\3\2\2\2[\\\3\2\2\2\\]\3"+
-		"\2\2\2]^\7V\2\2^c\3\2\2\2_`\7\r\2\2`a\7(\2\2ac\5\6\4\2bU\3\2\2\2b_\3\2"+
-		"\2\2c\5\3\2\2\2de\t\2\2\2ef\7\3\2\2fh\7U\2\2gi\5\6\4\2hg\3\2\2\2ij\3\2"+
-		"\2\2jh\3\2\2\2jk\3\2\2\2kl\3\2\2\2lm\7V\2\2mu\3\2\2\2no\t\2\2\2op\7(\2"+
+		"\2\2WY\7S\2\2XZ\5\6\4\2YX\3\2\2\2Z[\3\2\2\2[Y\3\2\2\2[\\\3\2\2\2\\]\3"+
+		"\2\2\2]^\7T\2\2^c\3\2\2\2_`\7\r\2\2`a\7(\2\2ac\5\6\4\2bU\3\2\2\2b_\3\2"+
+		"\2\2c\5\3\2\2\2de\t\2\2\2ef\7\3\2\2fh\7S\2\2gi\5\6\4\2hg\3\2\2\2ij\3\2"+
+		"\2\2jh\3\2\2\2jk\3\2\2\2kl\3\2\2\2lm\7T\2\2mu\3\2\2\2no\t\2\2\2op\7(\2"+
 		"\2pu\5\6\4\2qr\5\b\5\2rs\7\3\2\2su\3\2\2\2td\3\2\2\2tn\3\2\2\2tq\3\2\2"+
 		"\2u\7\3\2\2\2vy\7L\2\2wx\7@\2\2xz\5> \2yw\3\2\2\2yz\3\2\2\2z\t\3\2\2\2"+
 		"{|\7\r\2\2|}\7(\2\2}~\5\f\7\2~\13\3\2\2\2\177\u0080\7L\2\2\u0080\u0081"+
 		"\7(\2\2\u0081\u0084\5\f\7\2\u0082\u0084\5\b\5\2\u0083\177\3\2\2\2\u0083"+
 		"\u0082\3\2\2\2\u0084\r\3\2\2\2\u0085\u0086\7L\2\2\u0086\u0087\7\3\2\2"+
-		"\u0087\u0089\7U\2\2\u0088\u008a\5\20\t\2\u0089\u0088\3\2\2\2\u008a\u008b"+
+		"\u0087\u0089\7S\2\2\u0088\u008a\5\20\t\2\u0089\u0088\3\2\2\2\u008a\u008b"+
 		"\3\2\2\2\u008b\u0089\3\2\2\2\u008b\u008c\3\2\2\2\u008c\u008d\3\2\2\2\u008d"+
-		"\u008e\7V\2\2\u008e\u0093\3\2\2\2\u008f\u0090\7L\2\2\u0090\u0091\7(\2"+
+		"\u008e\7T\2\2\u008e\u0093\3\2\2\2\u008f\u0090\7L\2\2\u0090\u0091\7(\2"+
 		"\2\u0091\u0093\5\20\t\2\u0092\u0085\3\2\2\2\u0092\u008f\3\2\2\2\u0093"+
 		"\17\3\2\2\2\u0094\u009b\5\4\3\2\u0095\u009b\5\22\n\2\u0096\u009b\5\16"+
 		"\b\2\u0097\u0098\5\b\5\2\u0098\u0099\7\3\2\2\u0099\u009b\3\2\2\2\u009a"+
 		"\u0094\3\2\2\2\u009a\u0095\3\2\2\2\u009a\u0096\3\2\2\2\u009a\u0097\3\2"+
 		"\2\2\u009b\21\3\2\2\2\u009c\u009e\5\24\13\2\u009d\u009c\3\2\2\2\u009d"+
-		"\u009e\3\2\2\2\u009e\u009f\3\2\2\2\u009f\u00a0\7\3\2\2\u00a0\u00a2\7U"+
+		"\u009e\3\2\2\2\u009e\u009f\3\2\2\2\u009f\u00a0\7\3\2\2\u00a0\u00a2\7S"+
 		"\2\2\u00a1\u00a3\5\26\f\2\u00a2\u00a1\3\2\2\2\u00a3\u00a4\3\2\2\2\u00a4"+
-		"\u00a2\3\2\2\2\u00a4\u00a5\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6\u00a7\7V"+
+		"\u00a2\3\2\2\2\u00a4\u00a5\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6\u00a7\7T"+
 		"\2\2\u00a7\u00af\3\2\2\2\u00a8\u00a9\5\24\13\2\u00a9\u00aa\7(\2\2\u00aa"+
 		"\u00ac\3\2\2\2\u00ab\u00a8\3\2\2\2\u00ab\u00ac\3\2\2\2\u00ac\u00ad\3\2"+
 		"\2\2\u00ad\u00af\5\26\f\2\u00ae\u009d\3\2\2\2\u00ae\u00ab\3\2\2\2\u00af"+
@@ -3834,9 +3833,9 @@ public class DMParser extends Parser {
 		"\2\2\u00da\u00dd\3\2\2\2\u00db\u00d9\3\2\2\2\u00dc\u00d3\3\2\2\2\u00dc"+
 		"\u00dd\3\2\2\2\u00dd\u00e0\3\2\2\2\u00de\u00df\7\f\2\2\u00df\u00e1\5>"+
 		" \2\u00e0\u00de\3\2\2\2\u00e0\u00e1\3\2\2\2\u00e1\33\3\2\2\2\u00e2\u00ed"+
-		"\5 \21\2\u00e3\u00e4\7\3\2\2\u00e4\u00e6\7U\2\2\u00e5\u00e7\5\36\20\2"+
+		"\5 \21\2\u00e3\u00e4\7\3\2\2\u00e4\u00e6\7S\2\2\u00e5\u00e7\5\36\20\2"+
 		"\u00e6\u00e5\3\2\2\2\u00e7\u00e8\3\2\2\2\u00e8\u00e6\3\2\2\2\u00e8\u00e9"+
-		"\3\2\2\2\u00e9\u00ea\3\2\2\2\u00ea\u00eb\7V\2\2\u00eb\u00ed\3\2\2\2\u00ec"+
+		"\3\2\2\2\u00e9\u00ea\3\2\2\2\u00ea\u00eb\7T\2\2\u00eb\u00ed\3\2\2\2\u00ec"+
 		"\u00e2\3\2\2\2\u00ec\u00e3\3\2\2\2\u00ed\35\3\2\2\2\u00ee\u00f1\5 \21"+
 		"\2\u00ef\u00f1\5*\26\2\u00f0\u00ee\3\2\2\2\u00f0\u00ef\3\2\2\2\u00f1\37"+
 		"\3\2\2\2\u00f2\u00f3\5\"\22\2\u00f3\u00f4\7\3\2\2\u00f4!\3\2\2\2\u00f5"+
