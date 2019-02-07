@@ -37,7 +37,7 @@ cd ..
       }
 
       CommonToken ct = commonToken(DMParser.NEWLINE);
-      ct.setText("<NEWLINE>");
+      ct.setText("<NEWLINEx>");
       this.emit(ct);
       while (!indents.isEmpty()) {
         ct = commonToken(DMParser.DEDENT);
@@ -77,9 +77,9 @@ cd ..
   }
 }
 
-//tokens { INDENT, DEDENT }  // if usinbg this, grun shows token name as <23> instead of <INDENT>
-INDENT: ('DUPAJASIA1'|'JASIADUPA1');
-DEDENT: ('DUPAJASIA2'|'JASIADUPA2');
+tokens { INDENT, DEDENT }  // if usinbg this, grun shows token name as <23> instead of <INDENT>
+//INDENT: ('DUPAJASIA1'|'JASIADUPA1');
+//DEDENT: ('DUPAJASIA2'|'JASIADUPA2');
 
 
 NEWLINE
@@ -93,14 +93,14 @@ NEWLINE
 
      int next = _input.LA(1);
      if (opened > 0 || next == '\r' || next == '\n' || next == '\f') {
-       //skip();
-       emitHiddenToken(getText());
+       skip();
+       //emitHiddenToken(getText());
 
      } else if (next == '/' ) {
         next = _input.LA(2);
         if (next == '/' || next == '*') {
-            //skip();
-            emitHiddenToken(getText());
+            skip();
+            //emitHiddenToken(getText());
         }
      }
      else {
@@ -110,14 +110,14 @@ NEWLINE
        ct = commonToken(DMParser.NEWLINE, newLine, startIndex);
        ct.setLine(this._tokenStartLine);
        ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
-       ct.setText("<NEWLINE>");
+       ct.setText("<NEWLINEz>");
        emit(ct);
 
        int indent = spaces.length();
        int previous = indents.isEmpty() ? 0 : indents.peek();
        if (indent == previous) {
-         //skip();
-         emitHiddenToken(getText());
+         skip();
+         //emitHiddenToken(getText());
        }
        else if (indent > previous) {
          for(int i=0; i < (indent-previous); ++i) {
@@ -299,16 +299,14 @@ fragment EXPONENT : [eE] [+-]? DIGIT+;
 
 
 /* skip */
-SKIP_
- : ( SPACES | COMMENT ) -> channel(HIDDEN)
- ;
-
-fragment SPACES
- : [ \t]+
+SPACES
+ : [ \t]+ -> channel(HIDDEN)
  ;
 
 
-COMMENT : INLINE_COMMENT | MULTILINE_COMMENT ;
+COMMENT
+ : (INLINE_COMMENT | MULTILINE_COMMENT) -> channel(HIDDEN)
+ ;
 
 fragment INLINE_COMMENT
  : '//' ( STRING_ESCAPE_SEQ | ~[\\\r\n\f] )*

@@ -26,6 +26,9 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <fileTypeFactory implementation="org.byondplugin.DMFileTypeFactory"/>
+    <lang.parserDefinition language="DM" implementationClass="org.byondplugin.DMParserDefinition"/>
+
+    <langCodeStyleSettingsProvider implementation="org.byondplugin.ide.DMCodeStyleSettingsProvider"/>
   </extensions>
 
   <actions>

@@ -1,6 +1,6 @@
 If you want to recreate DMLexer.java and DMParser.Java then:
 
-$ antlr4 -visitor -o path_to_gen_org_byondplugin DM.g4
+$ antlr4 -visitor -o path_to_gen_org_byondplugin -package org.byondplugin DM.g4
 
 If you want to test grammar afterwards:
 
