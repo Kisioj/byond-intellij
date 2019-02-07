@@ -236,14 +236,24 @@ public class DMLexer extends Lexer {
 
 			        int next = _input.LA(1);
 			        if (opened > 0 || next == '\r' || next == '\n' || next == '\f') {
-			            skip();
+			            //skip();
 			            //emitHiddenToken(getText());
+			            ct = commonToken(DMParser.SPACES, getText(), this._tokenStartCharIndex);
+			            ct.setLine(this._tokenStartLine);
+			            ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
+			            ct.setChannel(HIDDEN);
+			            emit(ct);
 
 			        } else if (next == '/' ) {
 			            next = _input.LA(2);
 			            if (next == '/' || next == '*') {
-			                skip();
+			                //skip();
 			                //emitHiddenToken(getText());
+			                ct = commonToken(DMParser.SPACES, getText(), this._tokenStartCharIndex);
+			                ct.setLine(this._tokenStartLine);
+			                ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
+			                ct.setChannel(HIDDEN);
+			                emit(ct);
 			            }
 			        }
 			        else {
@@ -253,20 +263,27 @@ public class DMLexer extends Lexer {
 			            ct = commonToken(DMParser.NEWLINE, newLine, startIndex);
 			            ct.setLine(this._tokenStartLine);
 			            ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
-			            //ct.setText("<NEWLINEz>");
+			            ct.setText("<NEWLINEz>");
 			            emit(ct);
 
 			            int indent = spaces.length();
 			            int previous = indents.isEmpty() ? 0 : indents.peek();
 			            if (indent == previous) {
-			                skip();
+			                //skip();
 			                //emitHiddenToken(getText());
+
+			                ct = commonToken(DMParser.SPACES, spaces, startIndexSpaces);
+			                ct.setText("<SPACES>");
+			                ct.setCharPositionInLine(0);
+			                ct.setChannel(HIDDEN);
+			                emit(ct);
+
 			            }
 			            else if (indent > previous) {
 			                for(int i=0; i < (indent-previous); ++i) {
 			                    indents.push(indent);
 			                    ct = commonToken(DMParser.INDENT, spaces, startIndexSpaces);
-			                    //ct.setText("<INDENT>");
+			                    ct.setText("<INDENT>");
 			                    ct.setCharPositionInLine(0);
 			                    emit(ct);
 			                }
