@@ -117,78 +117,80 @@ public class DMLexer extends Lexer {
 	}
 
 
-	  // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
-	  private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
-	  // The stack that keeps track of the indentation level.
-	  private java.util.Stack<Integer> indents = new java.util.Stack<>();
-	  // The amount of opened braces, brackets and parenthesis.
-	  private int opened = 0;
+	    // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
+	    private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
 
-	  private Token lastToken = null;
+	    private int indent = 0;
 
-	  @Override
-	  public void reset() {
-	    super.reset();
-	    tokens.clear();
-	  }
+	    // The amount of opened braces, brackets and parenthesis.
+	    private int opened = 0;
 
-	  @Override
-	  public void emit(Token token) {
-	    //System.out.println("emit: " + token);
-	    super.setToken(token);
-	    tokens.offer(token);
-	  }
+	    private Token lastToken = null;
 
-	 @Override
-	  public Token nextToken() {
-	    // Check if the end-of-file is ahead and there are still some DEDENTS expected.
-	    if (_input.LA(1) == EOF && !this.indents.isEmpty()) {
-	      // Remove any trailing EOF tokens from our buffer.
-	      for (int i = tokens.size() - 1; i >= 0; i--) {
-	        if (tokens.get(i).getType() == EOF) {
-	          tokens.remove(i);
-	        }
-	      }
-
-	      CommonToken ct = commonToken(DMParser.NEWLINE);
-	      ct.setText("<NEWLINEx>");
-	      this.emit(ct);
-	      while (!indents.isEmpty()) {
-	        ct = commonToken(DMParser.DEDENT);
-	        ct.setText("<DEDENT>");
-	        this.emit(ct);
-
-	        indents.pop();
-	      }
-	      this.emit(commonToken(DMParser.EOF));
+	    @Override
+	    public void reset() {
+	        super.reset();
+	        tokens.clear();
 	    }
 
-	    Token next = super.nextToken();
-	    return tokens.isEmpty() ? next : tokens.poll();
-	  }
+	    @Override
+	    public void emit(Token token) {
+	        //System.out.println("emit: " + token);
+	        super.setToken(token);
+	        tokens.offer(token);
+	    }
 
-	  private void emitHiddenToken(String text) {
-	    int start =  this.getCharIndex();
-	    int stop = start + text.length() - 1;
-	    CommonToken token =  new CommonToken(this._tokenFactorySourcePair, DMParser.NEWLINE, HIDDEN, start, stop);
-	    emit(token);
-	  }
+	    @Override
+	    public Token nextToken() {
+	        // Check if the end-of-file is ahead and there are still some DEDENTS expected.
+	        if (_input.LA(1) == EOF && this.indent > 0) {
+	            // Remove any trailing EOF tokens from our buffer.
+	            for (int i = tokens.size() - 1; i >= 0; i--) {
+	                if (tokens.get(i).getType() == EOF) {
+	                    tokens.remove(i);
+	                }
+	            }
 
-	  private CommonToken commonToken(int type, String text, int start) {
-	    int stop = start + text.length() - 1;
-	    return new CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop);
-	  }
+	            CommonToken ct = commonToken(DMParser.NEWLINE);
+	            ct.setText("<NEWLINEx>");
+	            this.emit(ct);
+	            while (this.indent > 0) {
+	                ct = commonToken(DMParser.DEDENT);
+	                ct.setText("<DEDENT>");
+	                this.emit(ct);
 
-	  private CommonToken commonToken(int type) {
-	    int start =  this.getCharIndex();
-	    int stop = start - 1;
-	    CommonToken token = new CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop);
-	    return token;
-	  }
+	                this.indent--;
+	            }
 
-	  boolean atStartOfInput() {
-	    return super.getCharPositionInLine() == 0 && super.getLine() == 1;
-	  }
+	            this.emit(commonToken(DMParser.EOF));
+	        }
+
+	        Token next = super.nextToken();
+	        return tokens.isEmpty() ? next : tokens.poll();
+	    }
+
+	    private void emitHiddenToken(String text) {
+	        int start =  this.getCharIndex();
+	        int stop = start + text.length() - 1;
+	        CommonToken token =  new CommonToken(this._tokenFactorySourcePair, DMParser.NEWLINE, HIDDEN, start, stop);
+	        emit(token);
+	    }
+
+	    private CommonToken commonToken(int type, String text, int start) {
+	        int stop = start + text.length() - 1;
+	        return new CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop);
+	    }
+
+	    private CommonToken commonToken(int type) {
+	        int start =  this.getCharIndex();
+	        int stop = start - 1;
+	        CommonToken token = new CommonToken(this._tokenFactorySourcePair, type, DEFAULT_TOKEN_CHANNEL, start, stop);
+	        return token;
+	    }
+
+	    boolean atStartOfInput() {
+	        return super.getCharPositionInLine() == 0 && super.getLine() == 1;
+	    }
 
 
 	public DMLexer(CharStream input) {
@@ -275,38 +277,38 @@ public class DMLexer extends Lexer {
 			            ct.setText("<NEWLINEz>");
 			            emit(ct);
 
-			            int indent = spaces.length();
-			            int previous = indents.isEmpty() ? 0 : indents.peek();
-			            if (indent == previous) {
-			                //skip();
-			                //emitHiddenToken(getText());
 
+			            int ws_count = spaces.length();
+
+			            if (ws_count == this.indent) {
 			                ct = commonToken(DMParser.SPACES, spaces, startIndexSpaces);
 			                ct.setText("<SPACES>");
 			                ct.setCharPositionInLine(0);
 			                ct.setChannel(HIDDEN);
 			                emit(ct);
 
-			            }
-			            else if (indent > previous) {
-			                for(int i=0; i < (indent-previous); ++i) {
-			                    indents.push(indent);
-			                    ct = commonToken(DMParser.INDENT, spaces, startIndexSpaces);
+			            } else if (ws_count > this.indent) {
+			                for(int i=0; i < (ws_count-this.indent); ++i) {
+			                    ct = commonToken(DMParser.INDENT, spaces, startIndexSpaces + i);
 			                    ct.setText("<INDENT>");
 			                    ct.setCharPositionInLine(0);
 			                    emit(ct);
 			                }
-			            }
-			            else {
-			                for(int i=0; i < (previous-indent); ++i) {
+			                this.indent = ws_count;
+
+			            } else {
+			                for(int i=0; i < (this.indent-ws_count); ++i) {
 			                    ct = commonToken(DMParser.DEDENT, spaces, startIndexSpaces);
 			                    ct.setText("<DEDENT>");
 			                    ct.setCharPositionInLine(0);
 			                    emit(ct);
-			                    indents.pop();
 			                }
+			                this.indent = ws_count;
+
 			            }
+
 			        }
+
 			    
 			break;
 		}

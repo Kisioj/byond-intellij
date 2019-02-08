@@ -29,7 +29,7 @@
     <lang.parserDefinition language="DM" implementationClass="org.byondplugin.DMParserDefinition"/>
     <lang.syntaxHighlighterFactory language="DM" implementationClass="org.byondplugin.DMSyntaxHighlighterFactory"/>
 
-    <!--<langCodeStyleSettingsProvider implementation="org.byondplugin.ide.DMCodeStyleSettingsProvider"/>-->
+    <langCodeStyleSettingsProvider implementation="org.byondplugin.ide.DMCodeStyleSettingsProvider"/>
   </extensions>
 
   <actions>
