@@ -243,13 +243,14 @@ public class DMLexer extends Lexer {
 			        CommonToken ct;
 
 			        int next = _input.LA(1);
-			        if (opened > 0 || next == '\r' || next == '\n' || next == '\f') {
+			        if (opened > 0 || next == '\r' || next == '\n' || next == '\f' || next == EOF) {
 			            //skip();
 			            //emitHiddenToken(getText());
 			            ct = commonToken(DMParser.SPACES, getText(), this._tokenStartCharIndex);
 			            ct.setLine(this._tokenStartLine);
 			            ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
 			            ct.setChannel(HIDDEN);
+			            ct.setText("<SPACESx>");
 			            emit(ct);
 
 			        } else if (next == '/' ) {
