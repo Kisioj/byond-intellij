@@ -124,6 +124,14 @@ public class DMLexer extends Lexer {
 	  // The amount of opened braces, brackets and parenthesis.
 	  private int opened = 0;
 
+	  private Token lastToken = null;
+
+	  @Override
+	  public void reset() {
+	    super.reset();
+	    tokens.clear();
+	  }
+
 	  @Override
 	  public void emit(Token token) {
 	    //System.out.println("emit: " + token);

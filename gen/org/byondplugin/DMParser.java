@@ -154,14 +154,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_start; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterStart(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitStart(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitStart(this);
 			else return visitor.visitChildren(this);
@@ -240,14 +232,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterVar_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitVar_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitVar_stmt(this);
@@ -332,14 +316,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_var_path; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterVar_path(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitVar_path(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitVar_path(this);
@@ -441,14 +417,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_vardef; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterVardef(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitVardef(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitVardef(this);
 			else return visitor.visitChildren(this);
@@ -497,14 +465,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_inline_var_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterInline_var_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitInline_var_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitInline_var_stmt(this);
 			else return visitor.visitChildren(this);
@@ -548,14 +508,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_inline_var_path; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterInline_var_path(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitInline_var_path(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitInline_var_path(this);
@@ -616,14 +568,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_classdef; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterClassdef(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitClassdef(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitClassdef(this);
@@ -709,14 +653,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_class_body; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterClass_body(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitClass_body(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitClass_body(this);
 			else return visitor.visitChildren(this);
@@ -790,14 +726,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcdefs; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterFuncdefs(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitFuncdefs(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitFuncdefs(this);
@@ -886,14 +814,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_func_type; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterFunc_type(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitFunc_type(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitFunc_type(this);
 			else return visitor.visitChildren(this);
@@ -943,14 +863,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcdef; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterFuncdef(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitFuncdef(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitFuncdef(this);
@@ -1021,14 +933,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parameters; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterParameters(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitParameters(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitParameters(this);
@@ -1105,14 +1009,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_parameter; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterParameter(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitParameter(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitParameter(this);
@@ -1238,14 +1134,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_suite; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterSuite(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitSuite(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitSuite(this);
 			else return visitor.visitChildren(this);
@@ -1338,14 +1226,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterStmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitStmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitStmt(this);
 			else return visitor.visitChildren(this);
@@ -1422,14 +1302,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_simple_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterSimple_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitSimple_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitSimple_stmt(this);
 			else return visitor.visitChildren(this);
@@ -1473,14 +1345,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_small_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterSmall_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitSmall_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitSmall_stmt(this);
@@ -1558,14 +1422,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_set_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterSet_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitSet_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitSet_stmt(this);
 			else return visitor.visitChildren(this);
@@ -1617,14 +1473,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_del_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterDel_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitDel_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitDel_stmt(this);
 			else return visitor.visitChildren(this);
@@ -1671,14 +1519,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_flow_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterFlow_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitFlow_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitFlow_stmt(this);
@@ -1762,14 +1602,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_compound_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterCompound_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitCompound_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitCompound_stmt(this);
@@ -1864,14 +1696,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_if_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterIf_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitIf_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitIf_stmt(this);
 			else return visitor.visitChildren(this);
@@ -1959,14 +1783,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_dowhile_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterDowhile_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitDowhile_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitDowhile_stmt(this);
 			else return visitor.visitChildren(this);
@@ -2016,14 +1832,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_while_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterWhile_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitWhile_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitWhile_stmt(this);
 			else return visitor.visitChildren(this);
@@ -2070,14 +1878,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_spawn_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterSpawn_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitSpawn_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitSpawn_stmt(this);
@@ -2140,14 +1940,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_for_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterFor_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitFor_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitFor_stmt(this);
@@ -2285,14 +2077,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_foreach_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterForeach_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitForeach_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitForeach_stmt(this);
 			else return visitor.visitChildren(this);
@@ -2375,14 +2159,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_break_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterBreak_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitBreak_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitBreak_stmt(this);
 			else return visitor.visitChildren(this);
@@ -2415,14 +2191,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_continue_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterContinue_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitContinue_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitContinue_stmt(this);
@@ -2459,14 +2227,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_return_stmt; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterReturn_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitReturn_stmt(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitReturn_stmt(this);
@@ -2526,14 +2286,6 @@ public class DMParser extends Parser {
 		}
 		public In_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterIn_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitIn_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitIn_expr(this);
 			else return visitor.visitChildren(this);
@@ -2547,14 +2299,6 @@ public class DMParser extends Parser {
 			return getRuleContext(TrailerContext.class,0);
 		}
 		public Trailer_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterTrailer_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitTrailer_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitTrailer_expr(this);
@@ -2570,14 +2314,6 @@ public class DMParser extends Parser {
 		}
 		public Add_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterAdd_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitAdd_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitAdd_expr(this);
 			else return visitor.visitChildren(this);
@@ -2591,14 +2327,6 @@ public class DMParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public New_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterNew_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitNew_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitNew_expr(this);
@@ -2614,14 +2342,6 @@ public class DMParser extends Parser {
 		}
 		public Assign_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterAssign_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitAssign_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitAssign_expr(this);
 			else return visitor.visitChildren(this);
@@ -2633,14 +2353,6 @@ public class DMParser extends Parser {
 		}
 		public TerminalNode NAME() { return getToken(DMParser.NAME, 0); }
 		public As_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterAs_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitAs_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitAs_expr(this);
@@ -2656,14 +2368,6 @@ public class DMParser extends Parser {
 		}
 		public Bitmove_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterBitmove_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitBitmove_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitBitmove_expr(this);
 			else return visitor.visitChildren(this);
@@ -2677,14 +2381,6 @@ public class DMParser extends Parser {
 			return getRuleContext(ExprContext.class,i);
 		}
 		public Logor_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterLogor_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitLogor_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitLogor_expr(this);
@@ -2700,14 +2396,6 @@ public class DMParser extends Parser {
 		}
 		public Logand_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterLogand_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitLogand_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitLogand_expr(this);
 			else return visitor.visitChildren(this);
@@ -2722,14 +2410,6 @@ public class DMParser extends Parser {
 		}
 		public Comp_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterComp_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitComp_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitComp_expr(this);
 			else return visitor.visitChildren(this);
@@ -2740,14 +2420,6 @@ public class DMParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public Power_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterPower_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitPower_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitPower_expr(this);
@@ -2763,14 +2435,6 @@ public class DMParser extends Parser {
 		}
 		public Mult_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterMult_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitMult_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitMult_expr(this);
 			else return visitor.visitChildren(this);
@@ -2781,14 +2445,6 @@ public class DMParser extends Parser {
 			return getRuleContext(ValueContext.class,0);
 		}
 		public Val_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterVal_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitVal_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitVal_expr(this);
@@ -2804,14 +2460,6 @@ public class DMParser extends Parser {
 		}
 		public Tenary_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterTenary_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitTenary_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitTenary_expr(this);
 			else return visitor.visitChildren(this);
@@ -2822,14 +2470,6 @@ public class DMParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public Onearg_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterOnearg_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitOnearg_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitOnearg_expr(this);
@@ -2845,14 +2485,6 @@ public class DMParser extends Parser {
 		}
 		public Bit_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterBit_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitBit_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitBit_expr(this);
 			else return visitor.visitChildren(this);
@@ -2867,14 +2499,6 @@ public class DMParser extends Parser {
 		}
 		public Eq_exprContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterEq_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitEq_expr(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitEq_expr(this);
 			else return visitor.visitChildren(this);
@@ -2885,14 +2509,6 @@ public class DMParser extends Parser {
 			return getRuleContext(ExprContext.class,0);
 		}
 		public Bracket_exprContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterBracket_expr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitBracket_expr(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitBracket_expr(this);
@@ -3263,14 +2879,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_trailer; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterTrailer(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitTrailer(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitTrailer(this);
 			else return visitor.visitChildren(this);
@@ -3360,14 +2968,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_arglist; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterArglist(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitArglist(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitArglist(this);
 			else return visitor.visitChildren(this);
@@ -3437,14 +3037,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_value; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterValue(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitValue(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitValue(this);
@@ -3532,14 +3124,6 @@ public class DMParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_new_stmt; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterNew_stmt(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitNew_stmt(this);
-		}
-		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitNew_stmt(this);
 			else return visitor.visitChildren(this);
@@ -3588,14 +3172,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_path; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterPath(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitPath(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitPath(this);
@@ -3661,14 +3237,6 @@ public class DMParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_name; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).enterName(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DMListener ) ((DMListener)listener).exitName(this);
-		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof DMVisitor ) return ((DMVisitor<? extends T>)visitor).visitName(this);
