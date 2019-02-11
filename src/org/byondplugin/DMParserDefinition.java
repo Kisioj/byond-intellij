@@ -41,20 +41,20 @@ public class DMParserDefinition implements ParserDefinition {
     public static final TokenSet COMMENTS =
             PSIElementTypeFactory.createTokenSet(
                     DMLanguage.INSTANCE,
-                    DMLexer.COMMENT
+                    DMIndentingLexer.COMMENT
             );
 
     public static final TokenSet WHITE_SPACES =
             PSIElementTypeFactory.createTokenSet(
                     DMLanguage.INSTANCE,
-                    DMLexer.SPACES
+                    DMIndentingLexer.SPACES
             );
 
     public static final TokenSet STRING_LITERALS =
             PSIElementTypeFactory.createTokenSet(
                     DMLanguage.INSTANCE,
-                    DMLexer.STRING_LITERAL,
-                    DMLexer.ICON_PATH
+                    DMIndentingLexer.STRING_LITERAL,
+                    DMIndentingLexer.ICON_PATH
             );
 
     @NotNull
@@ -89,7 +89,7 @@ public class DMParserDefinition implements ParserDefinition {
     @NotNull
     @Override
     public Lexer createLexer(Project project) {
-        DMLexer lexer = new DMLexer(null);
+        DMIndentingLexer lexer = new DMIndentingLexer(null);
         return new ANTLRLexerAdaptor(DMLanguage.INSTANCE, lexer);
     }
 

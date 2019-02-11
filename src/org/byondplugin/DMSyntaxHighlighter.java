@@ -3,6 +3,7 @@ package org.byondplugin;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.*;
 import com.intellij.openapi.editor.colors.TextAttributesKey;
+import com.intellij.openapi.editor.ex.util.LexerEditorHighlighter;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 
 import com.intellij.psi.tree.IElementType;
@@ -66,7 +67,7 @@ public class DMSyntaxHighlighter extends SyntaxHighlighterBase {
     @NotNull
     @Override
     public Lexer getHighlightingLexer() {
-        DMLexer lexer = new DMLexer(null);
+        DMHighlightingLexer lexer = new DMHighlightingLexer(null);
         return new ANTLRLexerAdaptor(DMLanguage.INSTANCE, lexer);
     }
 
@@ -81,115 +82,116 @@ public class DMSyntaxHighlighter extends SyntaxHighlighterBase {
         TextAttributesKey attrKey;
 
         switch (tokenType) {
-            case DMLexer.SWITCH:
-            case DMLexer.IF:
-            case DMLexer.ELSE:
-            case DMLexer.FOR:
-            case DMLexer.WHILE:
-            case DMLexer.DO:
-            case DMLexer.BREAK:
-            case DMLexer.CONTINUE:
-            case DMLexer.IN:
-            case DMLexer.VAR:
-            case DMLexer.CONST:
-            case DMLexer.DEL:
-            case DMLexer.RETURN:
-            case DMLexer.SET:
-            case DMLexer.TO:
-            case DMLexer.AS:
-            case DMLexer.GOTO:
-            case DMLexer.NEW:
-            case DMLexer.SPAWN:
-            case DMLexer.TRY:
-            case DMLexer.CATCH:
+            case DMHighlightingLexer.SWITCH:
+            case DMHighlightingLexer.IF:
+            case DMHighlightingLexer.ELSE:
+            case DMHighlightingLexer.FOR:
+            case DMHighlightingLexer.WHILE:
+            case DMHighlightingLexer.DO:
+            case DMHighlightingLexer.BREAK:
+            case DMHighlightingLexer.CONTINUE:
+            case DMHighlightingLexer.IN:
+            case DMHighlightingLexer.VAR:
+            case DMHighlightingLexer.CONST:
+            case DMHighlightingLexer.DEL:
+            case DMHighlightingLexer.RETURN:
+            case DMHighlightingLexer.SET:
+            case DMHighlightingLexer.TO:
+            case DMHighlightingLexer.AS:
+            case DMHighlightingLexer.GOTO:
+            case DMHighlightingLexer.NEW:
+            case DMHighlightingLexer.SPAWN:
+            case DMHighlightingLexer.TRY:
+            case DMHighlightingLexer.CATCH:
 
                 // BYOND not reserved keywords (but for us they will be reserved)
-            case DMLexer.VERB:
-            case DMLexer.PROC:
-            case DMLexer.GLOBAL:
-            case DMLexer.STATIC:
-            case DMLexer.ARG:
-            case DMLexer.TMP:
+            case DMHighlightingLexer.VERB:
+            case DMHighlightingLexer.PROC:
+            case DMHighlightingLexer.GLOBAL:
+            case DMHighlightingLexer.STATIC:
+            case DMHighlightingLexer.ARG:
+            case DMHighlightingLexer.TMP:
                 attrKey = KEYWORD;
                 break;
 
-            case DMLexer.OPEN_BRACK:
-            case DMLexer.CLOSE_BRACK:
+            case DMHighlightingLexer.OPEN_BRACK:
+            case DMHighlightingLexer.CLOSE_BRACK:
                 attrKey = BRACKET;
                 break;
 
-            case DMLexer.OPEN_PAREN:
-            case DMLexer.CLOSE_PAREN:
+            case DMHighlightingLexer.OPEN_PAREN:
+            case DMHighlightingLexer.CLOSE_PAREN:
                 attrKey = PARENTHESIS;
                 break;
 
-            case DMLexer.DOT:
+            case DMHighlightingLexer.DOT:
                 attrKey = DOT;
                 break;
-            case DMLexer.COMMA:
+            case DMHighlightingLexer.COMMA:
                 attrKey = COMMA;
                 break;
 
-            case DMLexer.DOUBLE_DOT:
-            case DMLexer.STAR:
-            case DMLexer.PERCENT:
-            case DMLexer.SLASH:
-            case DMLexer.COLON:
-            case DMLexer.QUESTION_MARK:
-            case DMLexer.NOT_OP:
-            case DMLexer.NEG_OP:
-            case DMLexer.MINUS:
-            case DMLexer.PLUS:
-            case DMLexer.INCREMENT:
-            case DMLexer.DECREMENT:
-            case DMLexer.POWER:
-            case DMLexer.LESS_THAN:
-            case DMLexer.GREATER_THAN:
-            case DMLexer.LESS_THAN_OR_EQUAL:
-            case DMLexer.GREATER_THAN_OR_EQUAL:
-            case DMLexer.SHIFT_LEFT:
-            case DMLexer.SHIFT_RIGHT:
-            case DMLexer.EQUAL:
-            case DMLexer.NOT_EQUAL:
-            case DMLexer.NOT_EQUAL_2:
-            case DMLexer.BIT_AND:
-            case DMLexer.BIT_OR:
-            case DMLexer.BIT_XOR:
-            case DMLexer.LOG_AND:
-            case DMLexer.LOG_OR:
-            case DMLexer.ASSIGN:
-            case DMLexer.ADD_ASSIGN:
-            case DMLexer.SUB_ASSIGN:
-            case DMLexer.MULT_ASSIGN:
-            case DMLexer.DIV_ASSIGN:
-            case DMLexer.MOD_ASSIGN:
-            case DMLexer.BIT_AND_ASSIGN:
-            case DMLexer.BIT_OR_ASSIGN:
-            case DMLexer.XOR_ASSIGN:
-            case DMLexer.LEFT_SHIFT_ASSIGN:
-            case DMLexer.RIGHT_SHIFT_ASSIGN:
+            case DMHighlightingLexer.DOUBLE_DOT:
+            case DMHighlightingLexer.STAR:
+            case DMHighlightingLexer.PERCENT:
+            case DMHighlightingLexer.SLASH:
+            case DMHighlightingLexer.COLON:
+            case DMHighlightingLexer.QUESTION_MARK:
+            case DMHighlightingLexer.NOT_OP:
+            case DMHighlightingLexer.NEG_OP:
+            case DMHighlightingLexer.MINUS:
+            case DMHighlightingLexer.PLUS:
+            case DMHighlightingLexer.INCREMENT:
+            case DMHighlightingLexer.DECREMENT:
+            case DMHighlightingLexer.POWER:
+            case DMHighlightingLexer.LESS_THAN:
+            case DMHighlightingLexer.GREATER_THAN:
+            case DMHighlightingLexer.LESS_THAN_OR_EQUAL:
+            case DMHighlightingLexer.GREATER_THAN_OR_EQUAL:
+            case DMHighlightingLexer.SHIFT_LEFT:
+            case DMHighlightingLexer.SHIFT_RIGHT:
+            case DMHighlightingLexer.EQUAL:
+            case DMHighlightingLexer.NOT_EQUAL:
+            case DMHighlightingLexer.NOT_EQUAL_2:
+            case DMHighlightingLexer.BIT_AND:
+            case DMHighlightingLexer.BIT_OR:
+            case DMHighlightingLexer.BIT_XOR:
+            case DMHighlightingLexer.LOG_AND:
+            case DMHighlightingLexer.LOG_OR:
+            case DMHighlightingLexer.ASSIGN:
+            case DMHighlightingLexer.ADD_ASSIGN:
+            case DMHighlightingLexer.SUB_ASSIGN:
+            case DMHighlightingLexer.MULT_ASSIGN:
+            case DMHighlightingLexer.DIV_ASSIGN:
+            case DMHighlightingLexer.MOD_ASSIGN:
+            case DMHighlightingLexer.BIT_AND_ASSIGN:
+            case DMHighlightingLexer.BIT_OR_ASSIGN:
+            case DMHighlightingLexer.XOR_ASSIGN:
+            case DMHighlightingLexer.LEFT_SHIFT_ASSIGN:
+            case DMHighlightingLexer.RIGHT_SHIFT_ASSIGN:
                 attrKey = OPERATOR;
                 break;
 
-            case DMLexer.NAME:
+            case DMHighlightingLexer.NAME:
                 attrKey = NAME;
                 break;
 
-            case DMLexer.STRING_LITERAL:
-            case DMLexer.ICON_PATH:
+            case DMHighlightingLexer.STRING_LITERAL:
+            case DMHighlightingLexer.ICON_PATH:
                 attrKey = STRING;
                 break;
 
-            case DMLexer.NUMBER:
+            case DMHighlightingLexer.NUMBER:
                 attrKey = NUMBER;
                 break;
 
-            case DMLexer.COMMENT:
+            case DMHighlightingLexer.COMMENT:
                 attrKey = COMMENT;
                 break;
 
             default:
                 return EMPTY_KEYS;
+
         }
         return new TextAttributesKey[]{attrKey};
     }

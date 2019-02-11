@@ -1,4 +1,4 @@
-// Generated from DM.g4 by ANTLR 4.7.1
+// Generated from C:\Users\kisio\IdeaProjects\byond-intellij\src\org\byondplugin\grammar\DMIndentingLexer.g4 by ANTLR 4.7.1
 package org.byondplugin;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -10,26 +10,27 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class DMLexer extends Lexer {
+public class DMIndentingLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		NEWLINE=1, SWITCH=2, IF=3, ELSE=4, FOR=5, WHILE=6, DO=7, BREAK=8, CONTINUE=9, 
-		IN=10, VAR=11, CONST=12, DEL=13, RETURN=14, SET=15, TO=16, AS=17, GOTO=18, 
-		NEW=19, SPAWN=20, TRY=21, CATCH=22, VERB=23, PROC=24, GLOBAL=25, STATIC=26, 
-		ARG=27, TMP=28, OPEN_BRACK=29, CLOSE_BRACK=30, OPEN_PAREN=31, CLOSE_PAREN=32, 
-		DOUBLE_DOT=33, DOT=34, COMMA=35, STAR=36, PERCENT=37, SLASH=38, COLON=39, 
-		QUESTION_MARK=40, NOT_OP=41, NEG_OP=42, MINUS=43, PLUS=44, INCREMENT=45, 
-		DECREMENT=46, POWER=47, LESS_THAN=48, GREATER_THAN=49, LESS_THAN_OR_EQUAL=50, 
-		GREATER_THAN_OR_EQUAL=51, SHIFT_LEFT=52, SHIFT_RIGHT=53, EQUAL=54, NOT_EQUAL=55, 
-		NOT_EQUAL_2=56, BIT_AND=57, BIT_OR=58, BIT_XOR=59, LOG_AND=60, LOG_OR=61, 
-		ASSIGN=62, ADD_ASSIGN=63, SUB_ASSIGN=64, MULT_ASSIGN=65, DIV_ASSIGN=66, 
-		MOD_ASSIGN=67, BIT_AND_ASSIGN=68, BIT_OR_ASSIGN=69, XOR_ASSIGN=70, LEFT_SHIFT_ASSIGN=71, 
-		RIGHT_SHIFT_ASSIGN=72, SEMICOLON=73, NAME=74, STRING_LITERAL=75, ICON_PATH=76, 
-		NUMBER=77, SPACES=78, COMMENT=79, UNKNOWN_CHAR=80;
+		INDENT=1, DEDENT=2, OPEN_BRACK=3, CLOSE_BRACK=4, OPEN_PAREN=5, CLOSE_PAREN=6, 
+		NEWLINE=7, SWITCH=8, IF=9, ELSE=10, FOR=11, WHILE=12, DO=13, BREAK=14, 
+		CONTINUE=15, IN=16, VAR=17, CONST=18, DEL=19, RETURN=20, SET=21, TO=22, 
+		AS=23, GOTO=24, NEW=25, SPAWN=26, TRY=27, CATCH=28, VERB=29, PROC=30, 
+		GLOBAL=31, STATIC=32, ARG=33, TMP=34, DOUBLE_DOT=35, DOT=36, COMMA=37, 
+		STAR=38, PERCENT=39, SLASH=40, COLON=41, QUESTION_MARK=42, NOT_OP=43, 
+		NEG_OP=44, MINUS=45, PLUS=46, INCREMENT=47, DECREMENT=48, POWER=49, LESS_THAN=50, 
+		GREATER_THAN=51, LESS_THAN_OR_EQUAL=52, GREATER_THAN_OR_EQUAL=53, SHIFT_LEFT=54, 
+		SHIFT_RIGHT=55, EQUAL=56, NOT_EQUAL=57, NOT_EQUAL_2=58, BIT_AND=59, BIT_OR=60, 
+		BIT_XOR=61, LOG_AND=62, LOG_OR=63, ASSIGN=64, ADD_ASSIGN=65, SUB_ASSIGN=66, 
+		MULT_ASSIGN=67, DIV_ASSIGN=68, MOD_ASSIGN=69, BIT_AND_ASSIGN=70, BIT_OR_ASSIGN=71, 
+		XOR_ASSIGN=72, LEFT_SHIFT_ASSIGN=73, RIGHT_SHIFT_ASSIGN=74, SEMICOLON=75, 
+		NAME=76, STRING_LITERAL=77, ICON_PATH=78, NUMBER=79, SPACES=80, COMMENT=81, 
+		UNKNOWN_CHAR=82;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -39,10 +40,10 @@ public class DMLexer extends Lexer {
 	};
 
 	public static final String[] ruleNames = {
-		"NEWLINE", "SWITCH", "IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", "CONTINUE", 
-		"IN", "VAR", "CONST", "DEL", "RETURN", "SET", "TO", "AS", "GOTO", "NEW", 
-		"SPAWN", "TRY", "CATCH", "VERB", "PROC", "GLOBAL", "STATIC", "ARG", "TMP", 
-		"OPEN_BRACK", "CLOSE_BRACK", "OPEN_PAREN", "CLOSE_PAREN", "DOUBLE_DOT", 
+		"OPEN_BRACK", "CLOSE_BRACK", "OPEN_PAREN", "CLOSE_PAREN", "NEWLINE", "SWITCH", 
+		"IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", "CONTINUE", "IN", "VAR", 
+		"CONST", "DEL", "RETURN", "SET", "TO", "AS", "GOTO", "NEW", "SPAWN", "TRY", 
+		"CATCH", "VERB", "PROC", "GLOBAL", "STATIC", "ARG", "TMP", "DOUBLE_DOT", 
 		"DOT", "COMMA", "STAR", "PERCENT", "SLASH", "BACKSLASH", "COLON", "QUESTION_MARK", 
 		"NOT_OP", "NEG_OP", "MINUS", "PLUS", "INCREMENT", "DECREMENT", "POWER", 
 		"LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUAL", "GREATER_THAN_OR_EQUAL", 
@@ -58,21 +59,21 @@ public class DMLexer extends Lexer {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, null, "'switch'", "'if'", "'else'", "'for'", "'while'", "'do'", 
-		"'break'", "'continue'", "'in'", "'var'", "'const'", "'del'", "'return'", 
-		"'set'", "'to'", "'as'", "'goto'", "'new'", "'spawn'", "'try'", "'catch'", 
-		"'verb'", "'proc'", "'global'", "'static'", "'arg'", "'tmp'", "'['", "']'", 
-		"'('", "')'", "'..'", "'.'", "','", "'*'", "'%'", "'/'", "':'", "'?'", 
-		"'~'", "'!'", "'-'", "'+'", "'++'", "'--'", "'**'", "'<'", "'>'", "'<='", 
-		"'>='", "'<<'", "'>>'", "'=='", "'!='", "'<>'", "'&'", "'|'", "'^'", "'&&'", 
-		"'||'", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", "'&='", "'|='", 
-		"'^='", "'<<='", "'>>='", "';'"
+		null, null, null, "'['", "']'", "'('", "')'", null, "'switch'", "'if'", 
+		"'else'", "'for'", "'while'", "'do'", "'break'", "'continue'", "'in'", 
+		"'var'", "'const'", "'del'", "'return'", "'set'", "'to'", "'as'", "'goto'", 
+		"'new'", "'spawn'", "'try'", "'catch'", "'verb'", "'proc'", "'global'", 
+		"'static'", "'arg'", "'tmp'", "'..'", "'.'", "','", "'*'", "'%'", "'/'", 
+		"':'", "'?'", "'~'", "'!'", "'-'", "'+'", "'++'", "'--'", "'**'", "'<'", 
+		"'>'", "'<='", "'>='", "'<<'", "'>>'", "'=='", "'!='", "'<>'", "'&'", 
+		"'|'", "'^'", "'&&'", "'||'", "'='", "'+='", "'-='", "'*='", "'/='", "'%='", 
+		"'&='", "'|='", "'^='", "'<<='", "'>>='", "';'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "NEWLINE", "SWITCH", "IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", 
-		"CONTINUE", "IN", "VAR", "CONST", "DEL", "RETURN", "SET", "TO", "AS", 
-		"GOTO", "NEW", "SPAWN", "TRY", "CATCH", "VERB", "PROC", "GLOBAL", "STATIC", 
-		"ARG", "TMP", "OPEN_BRACK", "CLOSE_BRACK", "OPEN_PAREN", "CLOSE_PAREN", 
+		null, "INDENT", "DEDENT", "OPEN_BRACK", "CLOSE_BRACK", "OPEN_PAREN", "CLOSE_PAREN", 
+		"NEWLINE", "SWITCH", "IF", "ELSE", "FOR", "WHILE", "DO", "BREAK", "CONTINUE", 
+		"IN", "VAR", "CONST", "DEL", "RETURN", "SET", "TO", "AS", "GOTO", "NEW", 
+		"SPAWN", "TRY", "CATCH", "VERB", "PROC", "GLOBAL", "STATIC", "ARG", "TMP", 
 		"DOUBLE_DOT", "DOT", "COMMA", "STAR", "PERCENT", "SLASH", "COLON", "QUESTION_MARK", 
 		"NOT_OP", "NEG_OP", "MINUS", "PLUS", "INCREMENT", "DECREMENT", "POWER", 
 		"LESS_THAN", "GREATER_THAN", "LESS_THAN_OR_EQUAL", "GREATER_THAN_OR_EQUAL", 
@@ -117,48 +118,46 @@ public class DMLexer extends Lexer {
 	}
 
 
-	    // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
 	    private java.util.LinkedList<Token> tokens = new java.util.LinkedList<>();
-
+	    private boolean reachedEOF = false;
 	    private int indent = 0;
-
-	    // The amount of opened braces, brackets and parenthesis.
 	    private int opened = 0;
-
-	    private Token lastToken = null;
 
 	    @Override
 	    public void reset() {
 	        super.reset();
+
 	        tokens.clear();
+	        reachedEOF = false;
+	        indent = 0;
+	        opened = 0;
 	    }
 
 	    @Override
 	    public void emit(Token token) {
-	        //System.out.println("emit: " + token);
 	        super.setToken(token);
 	        tokens.offer(token);
 	    }
 
 	    @Override
 	    public Token nextToken() {
-	        // Check if the end-of-file is ahead and there are still some DEDENTS expected.
-	        if (_input.LA(1) == EOF && this.indent > 0) {
-	            // Remove any trailing EOF tokens from our buffer.
-	            for (int i = tokens.size() - 1; i >= 0; i--) {
-	                if (tokens.get(i).getType() == EOF) {
-	                    tokens.remove(i);
-	                }
-	            }
 
-	            CommonToken ct = commonToken(DMParser.NEWLINE);
-	            ct.setText("<NEWLINEx>");
+	        if (this.reachedEOF) {
+	            return tokens.poll();
+	        }
+
+	        if (_input.LA(1) == DMParser.EOF && this.indent > 0) {
+
+	            this.reachedEOF = true;
+
+	            CommonToken ct = commonToken(NEWLINE);
+	            ct.setText("<NEWLINE - EOF>");
 	            this.emit(ct);
+
 	            while (this.indent > 0) {
 	                ct = commonToken(DMParser.DEDENT);
-	                ct.setText("<DEDENT>");
+	                ct.setText("<DEDENT - EOF>");
 	                this.emit(ct);
-
 	                this.indent--;
 	            }
 
@@ -172,7 +171,7 @@ public class DMLexer extends Lexer {
 	    private void emitHiddenToken(String text) {
 	        int start =  this.getCharIndex();
 	        int stop = start + text.length() - 1;
-	        CommonToken token =  new CommonToken(this._tokenFactorySourcePair, DMParser.NEWLINE, HIDDEN, start, stop);
+	        CommonToken token =  new CommonToken(this._tokenFactorySourcePair, NEWLINE, HIDDEN, start, stop);
 	        emit(token);
 	    }
 
@@ -193,13 +192,13 @@ public class DMLexer extends Lexer {
 	    }
 
 
-	public DMLexer(CharStream input) {
+	public DMIndentingLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "DM.g4"; }
+	public String getGrammarFileName() { return "DMIndentingLexer.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -220,35 +219,63 @@ public class DMLexer extends Lexer {
 	public void action(RuleContext _localctx, int ruleIndex, int actionIndex) {
 		switch (ruleIndex) {
 		case 0:
-			NEWLINE_action((RuleContext)_localctx, actionIndex);
-			break;
-		case 28:
 			OPEN_BRACK_action((RuleContext)_localctx, actionIndex);
 			break;
-		case 29:
+		case 1:
 			CLOSE_BRACK_action((RuleContext)_localctx, actionIndex);
 			break;
-		case 30:
+		case 2:
 			OPEN_PAREN_action((RuleContext)_localctx, actionIndex);
 			break;
-		case 31:
+		case 3:
 			CLOSE_PAREN_action((RuleContext)_localctx, actionIndex);
+			break;
+		case 4:
+			NEWLINE_action((RuleContext)_localctx, actionIndex);
+			break;
+		}
+	}
+	private void OPEN_BRACK_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 0:
+			opened++;
+			break;
+		}
+	}
+	private void CLOSE_BRACK_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 1:
+			opened--;
+			break;
+		}
+	}
+	private void OPEN_PAREN_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 2:
+			opened++;
+			break;
+		}
+	}
+	private void CLOSE_PAREN_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 3:
+			opened--;
 			break;
 		}
 	}
 	private void NEWLINE_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
-		case 0:
+		case 4:
 
 			        String newLine = getText().replaceAll("[^\r\n\f]+", "");
 			        String spaces = getText().replaceAll("[\r\n\f]+", "");
 			        CommonToken ct;
 
 			        int next = _input.LA(1);
-			        if (opened > 0 || next == '\r' || next == '\n' || next == '\f' || next == EOF) {
+			        if (opened > 0 || next == '\r' || next == '\n' || next == '\f' || next == DMParser.EOF) {
 			            //skip();
 			            //emitHiddenToken(getText());
-			            ct = commonToken(DMParser.SPACES, getText(), this._tokenStartCharIndex);
+			            ct = commonToken(SPACES, getText(), this._tokenStartCharIndex);
 			            ct.setLine(this._tokenStartLine);
 			            ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
 			            ct.setChannel(HIDDEN);
@@ -260,7 +287,7 @@ public class DMLexer extends Lexer {
 			            if (next == '/' || next == '*') {
 			                //skip();
 			                //emitHiddenToken(getText());
-			                ct = commonToken(DMParser.SPACES, getText(), this._tokenStartCharIndex);
+			                ct = commonToken(SPACES, getText(), this._tokenStartCharIndex);
 			                ct.setLine(this._tokenStartLine);
 			                ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
 			                ct.setChannel(HIDDEN);
@@ -271,7 +298,7 @@ public class DMLexer extends Lexer {
 			            int startIndex = this._tokenStartCharIndex;
 			            int startIndexSpaces = startIndex + newLine.length();
 
-			            ct = commonToken(DMParser.NEWLINE, newLine, startIndex);
+			            ct = commonToken(NEWLINE, newLine, startIndex);
 			            ct.setLine(this._tokenStartLine);
 			            ct.setCharPositionInLine(this._tokenStartCharPositionInLine);
 			            ct.setText("<NEWLINEz>");
@@ -281,7 +308,7 @@ public class DMLexer extends Lexer {
 			            int ws_count = spaces.length();
 
 			            if (ws_count == this.indent) {
-			                ct = commonToken(DMParser.SPACES, spaces, startIndexSpaces);
+			                ct = commonToken(SPACES, spaces, startIndexSpaces);
 			                ct.setText("<SPACES>");
 			                ct.setCharPositionInLine(0);
 			                ct.setChannel(HIDDEN);
@@ -313,38 +340,10 @@ public class DMLexer extends Lexer {
 			break;
 		}
 	}
-	private void OPEN_BRACK_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 1:
-			opened++;
-			break;
-		}
-	}
-	private void CLOSE_BRACK_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 2:
-			opened--;
-			break;
-		}
-	}
-	private void OPEN_PAREN_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 3:
-			opened++;
-			break;
-		}
-	}
-	private void CLOSE_PAREN_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 4:
-			opened--;
-			break;
-		}
-	}
 	@Override
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 0:
+		case 4:
 			return NEWLINE_sempred((RuleContext)_localctx, predIndex);
 		}
 		return true;
@@ -358,7 +357,7 @@ public class DMLexer extends Lexer {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2R\u027e\b\1\4\2\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2T\u027e\b\1\4\2\t"+
 		"\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -369,41 +368,41 @@ public class DMLexer extends Lexer {
 		"\4>\t>\4?\t?\4@\t@\4A\tA\4B\tB\4C\tC\4D\tD\4E\tE\4F\tF\4G\tG\4H\tH\4I"+
 		"\tI\4J\tJ\4K\tK\4L\tL\4M\tM\4N\tN\4O\tO\4P\tP\4Q\tQ\4R\tR\4S\tS\4T\tT"+
 		"\4U\tU\4V\tV\4W\tW\4X\tX\4Y\tY\4Z\tZ\4[\t[\4\\\t\\\4]\t]\4^\t^\4_\t_\4"+
-		"`\t`\4a\ta\4b\tb\4c\tc\4d\td\3\2\3\2\3\2\5\2\u00cd\n\2\3\2\3\2\5\2\u00d1"+
-		"\n\2\3\2\5\2\u00d4\n\2\5\2\u00d6\n\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7"+
-		"\3\7\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3"+
-		"\n\3\n\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16"+
-		"\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\20\3\20\3\20\3\20\3\21"+
-		"\3\21\3\21\3\22\3\22\3\22\3\23\3\23\3\23\3\23\3\23\3\24\3\24\3\24\3\24"+
-		"\3\25\3\25\3\25\3\25\3\25\3\25\3\26\3\26\3\26\3\26\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\3\30\3\30\3\30\3\30\3\30\3\31\3\31\3\31\3\31\3\31\3\32\3\32"+
-		"\3\32\3\32\3\32\3\32\3\32\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3\34\3\34"+
-		"\3\34\3\34\3\35\3\35\3\35\3\35\3\36\3\36\3\36\3\37\3\37\3\37\3 \3 \3 "+
-		"\3!\3!\3!\3\"\3\"\3\"\3#\3#\3$\3$\3%\3%\3&\3&\3\'\3\'\3(\3(\3)\3)\3*\3"+
-		"*\3+\3+\3,\3,\3-\3-\3.\3.\3/\3/\3/\3\60\3\60\3\60\3\61\3\61\3\61\3\62"+
-		"\3\62\3\63\3\63\3\64\3\64\3\64\3\65\3\65\3\65\3\66\3\66\3\66\3\67\3\67"+
-		"\3\67\38\38\38\39\39\39\3:\3:\3:\3;\3;\3<\3<\3=\3=\3>\3>\3>\3?\3?\3?\3"+
-		"@\3@\3A\3A\3A\3B\3B\3B\3C\3C\3C\3D\3D\3D\3E\3E\3E\3F\3F\3F\3G\3G\3G\3"+
-		"H\3H\3H\3I\3I\3I\3I\3J\3J\3J\3J\3K\3K\3L\3L\7L\u01db\nL\fL\16L\u01de\13"+
-		"L\3M\3M\5M\u01e2\nM\3N\3N\7N\u01e6\nN\fN\16N\u01e9\13N\3N\3N\3O\3O\3O"+
-		"\7O\u01f0\nO\fO\16O\u01f3\13O\3O\3O\3P\3P\3P\3P\7P\u01fb\nP\fP\16P\u01fe"+
-		"\13P\3P\3P\3P\3Q\3Q\5Q\u0205\nQ\3R\3R\3S\3S\3S\3S\5S\u020d\nS\3T\3T\5"+
-		"T\u0211\nT\3U\3U\3U\5U\u0216\nU\3V\3V\7V\u021a\nV\fV\16V\u021d\13V\3V"+
-		"\5V\u0220\nV\3W\3W\3W\3W\6W\u0226\nW\rW\16W\u0227\3X\3X\6X\u022c\nX\r"+
-		"X\16X\u022d\3Y\3Y\3Z\3Z\3[\3[\3\\\3\\\3]\3]\3]\7]\u023b\n]\f]\16]\u023e"+
-		"\13]\3]\5]\u0241\n]\3]\6]\u0244\n]\r]\16]\u0245\3]\3]\5]\u024a\n]\3^\6"+
-		"^\u024d\n^\r^\16^\u024e\3_\3_\5_\u0253\n_\3_\6_\u0256\n_\r_\16_\u0257"+
-		"\3`\6`\u025b\n`\r`\16`\u025c\3`\3`\3a\3a\5a\u0263\na\3a\3a\3b\3b\3b\3"+
-		"b\3b\7b\u026c\nb\fb\16b\u026f\13b\3c\3c\3c\3c\7c\u0275\nc\fc\16c\u0278"+
-		"\13c\3c\3c\3c\3d\3d\4\u01fc\u0276\2e\3\3\5\4\7\5\t\6\13\7\r\b\17\t\21"+
-		"\n\23\13\25\f\27\r\31\16\33\17\35\20\37\21!\22#\23%\24\'\25)\26+\27-\30"+
-		"/\31\61\32\63\33\65\34\67\359\36;\37= ?!A\"C#E$G%I&K\'M(O\2Q)S*U+W,Y-"+
-		"[.]/_\60a\61c\62e\63g\64i\65k\66m\67o8q9s:u;w<y={>}?\177@\u0081A\u0083"+
-		"B\u0085C\u0087D\u0089E\u008bF\u008dG\u008fH\u0091I\u0093J\u0095K\u0097"+
-		"L\u0099M\u009bN\u009d\2\u009f\2\u00a1\2\u00a3\2\u00a5\2\u00a7O\u00a9\2"+
+		"`\t`\4a\ta\4b\tb\4c\tc\4d\td\3\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3"+
+		"\5\3\5\3\6\3\6\3\6\5\6\u00d9\n\6\3\6\3\6\5\6\u00dd\n\6\3\6\5\6\u00e0\n"+
+		"\6\5\6\u00e2\n\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\t\3"+
+		"\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3"+
+		"\f\3\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16"+
+		"\3\17\3\17\3\17\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\3\21\3\21\3\22"+
+		"\3\22\3\22\3\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\24\3\24\3\24\3\24"+
+		"\3\25\3\25\3\25\3\26\3\26\3\26\3\27\3\27\3\27\3\27\3\27\3\30\3\30\3\30"+
+		"\3\30\3\31\3\31\3\31\3\31\3\31\3\31\3\32\3\32\3\32\3\32\3\33\3\33\3\33"+
+		"\3\33\3\33\3\33\3\34\3\34\3\34\3\34\3\34\3\35\3\35\3\35\3\35\3\35\3\36"+
+		"\3\36\3\36\3\36\3\36\3\36\3\36\3\37\3\37\3\37\3\37\3\37\3\37\3\37\3 \3"+
+		" \3 \3 \3!\3!\3!\3!\3\"\3\"\3\"\3#\3#\3$\3$\3%\3%\3&\3&\3\'\3\'\3(\3("+
+		"\3)\3)\3*\3*\3+\3+\3,\3,\3-\3-\3.\3.\3/\3/\3/\3\60\3\60\3\60\3\61\3\61"+
+		"\3\61\3\62\3\62\3\63\3\63\3\64\3\64\3\64\3\65\3\65\3\65\3\66\3\66\3\66"+
+		"\3\67\3\67\3\67\38\38\38\39\39\39\3:\3:\3:\3;\3;\3<\3<\3=\3=\3>\3>\3>"+
+		"\3?\3?\3?\3@\3@\3A\3A\3A\3B\3B\3B\3C\3C\3C\3D\3D\3D\3E\3E\3E\3F\3F\3F"+
+		"\3G\3G\3G\3H\3H\3H\3I\3I\3I\3I\3J\3J\3J\3J\3K\3K\3L\3L\7L\u01db\nL\fL"+
+		"\16L\u01de\13L\3M\3M\5M\u01e2\nM\3N\3N\7N\u01e6\nN\fN\16N\u01e9\13N\3"+
+		"N\3N\3O\3O\3O\7O\u01f0\nO\fO\16O\u01f3\13O\3O\3O\3P\3P\3P\3P\7P\u01fb"+
+		"\nP\fP\16P\u01fe\13P\3P\3P\3P\3Q\3Q\5Q\u0205\nQ\3R\3R\3S\3S\3S\3S\5S\u020d"+
+		"\nS\3T\3T\5T\u0211\nT\3U\3U\3U\5U\u0216\nU\3V\3V\7V\u021a\nV\fV\16V\u021d"+
+		"\13V\3V\5V\u0220\nV\3W\3W\3W\3W\6W\u0226\nW\rW\16W\u0227\3X\3X\6X\u022c"+
+		"\nX\rX\16X\u022d\3Y\3Y\3Z\3Z\3[\3[\3\\\3\\\3]\3]\3]\7]\u023b\n]\f]\16"+
+		"]\u023e\13]\3]\5]\u0241\n]\3]\6]\u0244\n]\r]\16]\u0245\3]\3]\5]\u024a"+
+		"\n]\3^\6^\u024d\n^\r^\16^\u024e\3_\3_\5_\u0253\n_\3_\6_\u0256\n_\r_\16"+
+		"_\u0257\3`\6`\u025b\n`\r`\16`\u025c\3`\3`\3a\3a\5a\u0263\na\3a\3a\3b\3"+
+		"b\3b\3b\3b\7b\u026c\nb\fb\16b\u026f\13b\3c\3c\3c\3c\7c\u0275\nc\fc\16"+
+		"c\u0278\13c\3c\3c\3c\3d\3d\4\u01fc\u0276\2e\3\5\5\6\7\7\t\b\13\t\r\n\17"+
+		"\13\21\f\23\r\25\16\27\17\31\20\33\21\35\22\37\23!\24#\25%\26\'\27)\30"+
+		"+\31-\32/\33\61\34\63\35\65\36\67\379 ;!=\"?#A$C%E&G\'I(K)M*O\2Q+S,U-"+
+		"W.Y/[\60]\61_\62a\63c\64e\65g\66i\67k8m9o:q;s<u=w>y?{@}A\177B\u0081C\u0083"+
+		"D\u0085E\u0087F\u0089G\u008bH\u008dI\u008fJ\u0091K\u0093L\u0095M\u0097"+
+		"N\u0099O\u009bP\u009d\2\u009f\2\u00a1\2\u00a3\2\u00a5\2\u00a7Q\u00a9\2"+
 		"\u00ab\2\u00ad\2\u00af\2\u00b1\2\u00b3\2\u00b5\2\u00b7\2\u00b9\2\u00bb"+
-		"\2\u00bd\2\u00bfP\u00c1Q\u00c3\2\u00c5\2\u00c7R\3\2\16\5\2C\\aac|\6\2"+
+		"\2\u00bd\2\u00bfR\u00c1S\u00c3\2\u00c5\2\u00c7T\3\2\16\5\2C\\aac|\6\2"+
 		"\62;C\\aac|\6\2\f\f\16\17$$^^\3\2^^\3\2\62;\3\2\63;\5\2\62;CHch\3\2\62"+
 		"9\4\2GGgg\4\2--//\4\2\13\13\"\"\5\2\f\f\16\17^^\2\u0289\2\3\3\2\2\2\2"+
 		"\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2"+
@@ -420,14 +419,14 @@ public class DMLexer extends Lexer {
 		"\2\2\u0089\3\2\2\2\2\u008b\3\2\2\2\2\u008d\3\2\2\2\2\u008f\3\2\2\2\2\u0091"+
 		"\3\2\2\2\2\u0093\3\2\2\2\2\u0095\3\2\2\2\2\u0097\3\2\2\2\2\u0099\3\2\2"+
 		"\2\2\u009b\3\2\2\2\2\u00a7\3\2\2\2\2\u00bf\3\2\2\2\2\u00c1\3\2\2\2\2\u00c7"+
-		"\3\2\2\2\3\u00d5\3\2\2\2\5\u00d9\3\2\2\2\7\u00e0\3\2\2\2\t\u00e3\3\2\2"+
-		"\2\13\u00e8\3\2\2\2\r\u00ec\3\2\2\2\17\u00f2\3\2\2\2\21\u00f5\3\2\2\2"+
-		"\23\u00fb\3\2\2\2\25\u0104\3\2\2\2\27\u0107\3\2\2\2\31\u010b\3\2\2\2\33"+
-		"\u0111\3\2\2\2\35\u0115\3\2\2\2\37\u011c\3\2\2\2!\u0120\3\2\2\2#\u0123"+
-		"\3\2\2\2%\u0126\3\2\2\2\'\u012b\3\2\2\2)\u012f\3\2\2\2+\u0135\3\2\2\2"+
-		"-\u0139\3\2\2\2/\u013f\3\2\2\2\61\u0144\3\2\2\2\63\u0149\3\2\2\2\65\u0150"+
-		"\3\2\2\2\67\u0157\3\2\2\29\u015b\3\2\2\2;\u015f\3\2\2\2=\u0162\3\2\2\2"+
-		"?\u0165\3\2\2\2A\u0168\3\2\2\2C\u016b\3\2\2\2E\u016e\3\2\2\2G\u0170\3"+
+		"\3\2\2\2\3\u00c9\3\2\2\2\5\u00cc\3\2\2\2\7\u00cf\3\2\2\2\t\u00d2\3\2\2"+
+		"\2\13\u00e1\3\2\2\2\r\u00e5\3\2\2\2\17\u00ec\3\2\2\2\21\u00ef\3\2\2\2"+
+		"\23\u00f4\3\2\2\2\25\u00f8\3\2\2\2\27\u00fe\3\2\2\2\31\u0101\3\2\2\2\33"+
+		"\u0107\3\2\2\2\35\u0110\3\2\2\2\37\u0113\3\2\2\2!\u0117\3\2\2\2#\u011d"+
+		"\3\2\2\2%\u0121\3\2\2\2\'\u0128\3\2\2\2)\u012c\3\2\2\2+\u012f\3\2\2\2"+
+		"-\u0132\3\2\2\2/\u0137\3\2\2\2\61\u013b\3\2\2\2\63\u0141\3\2\2\2\65\u0145"+
+		"\3\2\2\2\67\u014b\3\2\2\29\u0150\3\2\2\2;\u0155\3\2\2\2=\u015c\3\2\2\2"+
+		"?\u0163\3\2\2\2A\u0167\3\2\2\2C\u016b\3\2\2\2E\u016e\3\2\2\2G\u0170\3"+
 		"\2\2\2I\u0172\3\2\2\2K\u0174\3\2\2\2M\u0176\3\2\2\2O\u0178\3\2\2\2Q\u017a"+
 		"\3\2\2\2S\u017c\3\2\2\2U\u017e\3\2\2\2W\u0180\3\2\2\2Y\u0182\3\2\2\2["+
 		"\u0184\3\2\2\2]\u0186\3\2\2\2_\u0189\3\2\2\2a\u018c\3\2\2\2c\u018f\3\2"+
@@ -444,50 +443,50 @@ public class DMLexer extends Lexer {
 		"\u022f\3\2\2\2\u00b3\u0231\3\2\2\2\u00b5\u0233\3\2\2\2\u00b7\u0235\3\2"+
 		"\2\2\u00b9\u0249\3\2\2\2\u00bb\u024c\3\2\2\2\u00bd\u0250\3\2\2\2\u00bf"+
 		"\u025a\3\2\2\2\u00c1\u0262\3\2\2\2\u00c3\u0266\3\2\2\2\u00c5\u0270\3\2"+
-		"\2\2\u00c7\u027c\3\2\2\2\u00c9\u00ca\6\2\2\2\u00ca\u00d6\5\u00bf`\2\u00cb"+
-		"\u00cd\7\17\2\2\u00cc\u00cb\3\2\2\2\u00cc\u00cd\3\2\2\2\u00cd\u00ce\3"+
-		"\2\2\2\u00ce\u00d1\7\f\2\2\u00cf\u00d1\4\16\17\2\u00d0\u00cc\3\2\2\2\u00d0"+
-		"\u00cf\3\2\2\2\u00d1\u00d3\3\2\2\2\u00d2\u00d4\5\u00bf`\2\u00d3\u00d2"+
-		"\3\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\u00d6\3\2\2\2\u00d5\u00c9\3\2\2\2\u00d5"+
-		"\u00d0\3\2\2\2\u00d6\u00d7\3\2\2\2\u00d7\u00d8\b\2\2\2\u00d8\4\3\2\2\2"+
-		"\u00d9\u00da\7u\2\2\u00da\u00db\7y\2\2\u00db\u00dc\7k\2\2\u00dc\u00dd"+
-		"\7v\2\2\u00dd\u00de\7e\2\2\u00de\u00df\7j\2\2\u00df\6\3\2\2\2\u00e0\u00e1"+
-		"\7k\2\2\u00e1\u00e2\7h\2\2\u00e2\b\3\2\2\2\u00e3\u00e4\7g\2\2\u00e4\u00e5"+
-		"\7n\2\2\u00e5\u00e6\7u\2\2\u00e6\u00e7\7g\2\2\u00e7\n\3\2\2\2\u00e8\u00e9"+
-		"\7h\2\2\u00e9\u00ea\7q\2\2\u00ea\u00eb\7t\2\2\u00eb\f\3\2\2\2\u00ec\u00ed"+
-		"\7y\2\2\u00ed\u00ee\7j\2\2\u00ee\u00ef\7k\2\2\u00ef\u00f0\7n\2\2\u00f0"+
-		"\u00f1\7g\2\2\u00f1\16\3\2\2\2\u00f2\u00f3\7f\2\2\u00f3\u00f4\7q\2\2\u00f4"+
-		"\20\3\2\2\2\u00f5\u00f6\7d\2\2\u00f6\u00f7\7t\2\2\u00f7\u00f8\7g\2\2\u00f8"+
-		"\u00f9\7c\2\2\u00f9\u00fa\7m\2\2\u00fa\22\3\2\2\2\u00fb\u00fc\7e\2\2\u00fc"+
-		"\u00fd\7q\2\2\u00fd\u00fe\7p\2\2\u00fe\u00ff\7v\2\2\u00ff\u0100\7k\2\2"+
-		"\u0100\u0101\7p\2\2\u0101\u0102\7w\2\2\u0102\u0103\7g\2\2\u0103\24\3\2"+
-		"\2\2\u0104\u0105\7k\2\2\u0105\u0106\7p\2\2\u0106\26\3\2\2\2\u0107\u0108"+
-		"\7x\2\2\u0108\u0109\7c\2\2\u0109\u010a\7t\2\2\u010a\30\3\2\2\2\u010b\u010c"+
-		"\7e\2\2\u010c\u010d\7q\2\2\u010d\u010e\7p\2\2\u010e\u010f\7u\2\2\u010f"+
-		"\u0110\7v\2\2\u0110\32\3\2\2\2\u0111\u0112\7f\2\2\u0112\u0113\7g\2\2\u0113"+
-		"\u0114\7n\2\2\u0114\34\3\2\2\2\u0115\u0116\7t\2\2\u0116\u0117\7g\2\2\u0117"+
-		"\u0118\7v\2\2\u0118\u0119\7w\2\2\u0119\u011a\7t\2\2\u011a\u011b\7p\2\2"+
-		"\u011b\36\3\2\2\2\u011c\u011d\7u\2\2\u011d\u011e\7g\2\2\u011e\u011f\7"+
-		"v\2\2\u011f \3\2\2\2\u0120\u0121\7v\2\2\u0121\u0122\7q\2\2\u0122\"\3\2"+
-		"\2\2\u0123\u0124\7c\2\2\u0124\u0125\7u\2\2\u0125$\3\2\2\2\u0126\u0127"+
-		"\7i\2\2\u0127\u0128\7q\2\2\u0128\u0129\7v\2\2\u0129\u012a\7q\2\2\u012a"+
-		"&\3\2\2\2\u012b\u012c\7p\2\2\u012c\u012d\7g\2\2\u012d\u012e\7y\2\2\u012e"+
-		"(\3\2\2\2\u012f\u0130\7u\2\2\u0130\u0131\7r\2\2\u0131\u0132\7c\2\2\u0132"+
-		"\u0133\7y\2\2\u0133\u0134\7p\2\2\u0134*\3\2\2\2\u0135\u0136\7v\2\2\u0136"+
-		"\u0137\7t\2\2\u0137\u0138\7{\2\2\u0138,\3\2\2\2\u0139\u013a\7e\2\2\u013a"+
-		"\u013b\7c\2\2\u013b\u013c\7v\2\2\u013c\u013d\7e\2\2\u013d\u013e\7j\2\2"+
-		"\u013e.\3\2\2\2\u013f\u0140\7x\2\2\u0140\u0141\7g\2\2\u0141\u0142\7t\2"+
-		"\2\u0142\u0143\7d\2\2\u0143\60\3\2\2\2\u0144\u0145\7r\2\2\u0145\u0146"+
-		"\7t\2\2\u0146\u0147\7q\2\2\u0147\u0148\7e\2\2\u0148\62\3\2\2\2\u0149\u014a"+
-		"\7i\2\2\u014a\u014b\7n\2\2\u014b\u014c\7q\2\2\u014c\u014d\7d\2\2\u014d"+
-		"\u014e\7c\2\2\u014e\u014f\7n\2\2\u014f\64\3\2\2\2\u0150\u0151\7u\2\2\u0151"+
-		"\u0152\7v\2\2\u0152\u0153\7c\2\2\u0153\u0154\7v\2\2\u0154\u0155\7k\2\2"+
-		"\u0155\u0156\7e\2\2\u0156\66\3\2\2\2\u0157\u0158\7c\2\2\u0158\u0159\7"+
-		"t\2\2\u0159\u015a\7i\2\2\u015a8\3\2\2\2\u015b\u015c\7v\2\2\u015c\u015d"+
-		"\7o\2\2\u015d\u015e\7r\2\2\u015e:\3\2\2\2\u015f\u0160\7]\2\2\u0160\u0161"+
-		"\b\36\3\2\u0161<\3\2\2\2\u0162\u0163\7_\2\2\u0163\u0164\b\37\4\2\u0164"+
-		">\3\2\2\2\u0165\u0166\7*\2\2\u0166\u0167\b \5\2\u0167@\3\2\2\2\u0168\u0169"+
-		"\7+\2\2\u0169\u016a\b!\6\2\u016aB\3\2\2\2\u016b\u016c\7\60\2\2\u016c\u016d"+
+		"\2\2\u00c7\u027c\3\2\2\2\u00c9\u00ca\7]\2\2\u00ca\u00cb\b\2\2\2\u00cb"+
+		"\4\3\2\2\2\u00cc\u00cd\7_\2\2\u00cd\u00ce\b\3\3\2\u00ce\6\3\2\2\2\u00cf"+
+		"\u00d0\7*\2\2\u00d0\u00d1\b\4\4\2\u00d1\b\3\2\2\2\u00d2\u00d3\7+\2\2\u00d3"+
+		"\u00d4\b\5\5\2\u00d4\n\3\2\2\2\u00d5\u00d6\6\6\2\2\u00d6\u00e2\5\u00bf"+
+		"`\2\u00d7\u00d9\7\17\2\2\u00d8\u00d7\3\2\2\2\u00d8\u00d9\3\2\2\2\u00d9"+
+		"\u00da\3\2\2\2\u00da\u00dd\7\f\2\2\u00db\u00dd\4\16\17\2\u00dc\u00d8\3"+
+		"\2\2\2\u00dc\u00db\3\2\2\2\u00dd\u00df\3\2\2\2\u00de\u00e0\5\u00bf`\2"+
+		"\u00df\u00de\3\2\2\2\u00df\u00e0\3\2\2\2\u00e0\u00e2\3\2\2\2\u00e1\u00d5"+
+		"\3\2\2\2\u00e1\u00dc\3\2\2\2\u00e2\u00e3\3\2\2\2\u00e3\u00e4\b\6\6\2\u00e4"+
+		"\f\3\2\2\2\u00e5\u00e6\7u\2\2\u00e6\u00e7\7y\2\2\u00e7\u00e8\7k\2\2\u00e8"+
+		"\u00e9\7v\2\2\u00e9\u00ea\7e\2\2\u00ea\u00eb\7j\2\2\u00eb\16\3\2\2\2\u00ec"+
+		"\u00ed\7k\2\2\u00ed\u00ee\7h\2\2\u00ee\20\3\2\2\2\u00ef\u00f0\7g\2\2\u00f0"+
+		"\u00f1\7n\2\2\u00f1\u00f2\7u\2\2\u00f2\u00f3\7g\2\2\u00f3\22\3\2\2\2\u00f4"+
+		"\u00f5\7h\2\2\u00f5\u00f6\7q\2\2\u00f6\u00f7\7t\2\2\u00f7\24\3\2\2\2\u00f8"+
+		"\u00f9\7y\2\2\u00f9\u00fa\7j\2\2\u00fa\u00fb\7k\2\2\u00fb\u00fc\7n\2\2"+
+		"\u00fc\u00fd\7g\2\2\u00fd\26\3\2\2\2\u00fe\u00ff\7f\2\2\u00ff\u0100\7"+
+		"q\2\2\u0100\30\3\2\2\2\u0101\u0102\7d\2\2\u0102\u0103\7t\2\2\u0103\u0104"+
+		"\7g\2\2\u0104\u0105\7c\2\2\u0105\u0106\7m\2\2\u0106\32\3\2\2\2\u0107\u0108"+
+		"\7e\2\2\u0108\u0109\7q\2\2\u0109\u010a\7p\2\2\u010a\u010b\7v\2\2\u010b"+
+		"\u010c\7k\2\2\u010c\u010d\7p\2\2\u010d\u010e\7w\2\2\u010e\u010f\7g\2\2"+
+		"\u010f\34\3\2\2\2\u0110\u0111\7k\2\2\u0111\u0112\7p\2\2\u0112\36\3\2\2"+
+		"\2\u0113\u0114\7x\2\2\u0114\u0115\7c\2\2\u0115\u0116\7t\2\2\u0116 \3\2"+
+		"\2\2\u0117\u0118\7e\2\2\u0118\u0119\7q\2\2\u0119\u011a\7p\2\2\u011a\u011b"+
+		"\7u\2\2\u011b\u011c\7v\2\2\u011c\"\3\2\2\2\u011d\u011e\7f\2\2\u011e\u011f"+
+		"\7g\2\2\u011f\u0120\7n\2\2\u0120$\3\2\2\2\u0121\u0122\7t\2\2\u0122\u0123"+
+		"\7g\2\2\u0123\u0124\7v\2\2\u0124\u0125\7w\2\2\u0125\u0126\7t\2\2\u0126"+
+		"\u0127\7p\2\2\u0127&\3\2\2\2\u0128\u0129\7u\2\2\u0129\u012a\7g\2\2\u012a"+
+		"\u012b\7v\2\2\u012b(\3\2\2\2\u012c\u012d\7v\2\2\u012d\u012e\7q\2\2\u012e"+
+		"*\3\2\2\2\u012f\u0130\7c\2\2\u0130\u0131\7u\2\2\u0131,\3\2\2\2\u0132\u0133"+
+		"\7i\2\2\u0133\u0134\7q\2\2\u0134\u0135\7v\2\2\u0135\u0136\7q\2\2\u0136"+
+		".\3\2\2\2\u0137\u0138\7p\2\2\u0138\u0139\7g\2\2\u0139\u013a\7y\2\2\u013a"+
+		"\60\3\2\2\2\u013b\u013c\7u\2\2\u013c\u013d\7r\2\2\u013d\u013e\7c\2\2\u013e"+
+		"\u013f\7y\2\2\u013f\u0140\7p\2\2\u0140\62\3\2\2\2\u0141\u0142\7v\2\2\u0142"+
+		"\u0143\7t\2\2\u0143\u0144\7{\2\2\u0144\64\3\2\2\2\u0145\u0146\7e\2\2\u0146"+
+		"\u0147\7c\2\2\u0147\u0148\7v\2\2\u0148\u0149\7e\2\2\u0149\u014a\7j\2\2"+
+		"\u014a\66\3\2\2\2\u014b\u014c\7x\2\2\u014c\u014d\7g\2\2\u014d\u014e\7"+
+		"t\2\2\u014e\u014f\7d\2\2\u014f8\3\2\2\2\u0150\u0151\7r\2\2\u0151\u0152"+
+		"\7t\2\2\u0152\u0153\7q\2\2\u0153\u0154\7e\2\2\u0154:\3\2\2\2\u0155\u0156"+
+		"\7i\2\2\u0156\u0157\7n\2\2\u0157\u0158\7q\2\2\u0158\u0159\7d\2\2\u0159"+
+		"\u015a\7c\2\2\u015a\u015b\7n\2\2\u015b<\3\2\2\2\u015c\u015d\7u\2\2\u015d"+
+		"\u015e\7v\2\2\u015e\u015f\7c\2\2\u015f\u0160\7v\2\2\u0160\u0161\7k\2\2"+
+		"\u0161\u0162\7e\2\2\u0162>\3\2\2\2\u0163\u0164\7c\2\2\u0164\u0165\7t\2"+
+		"\2\u0165\u0166\7i\2\2\u0166@\3\2\2\2\u0167\u0168\7v\2\2\u0168\u0169\7"+
+		"o\2\2\u0169\u016a\7r\2\2\u016aB\3\2\2\2\u016b\u016c\7\60\2\2\u016c\u016d"+
 		"\7\60\2\2\u016dD\3\2\2\2\u016e\u016f\7\60\2\2\u016fF\3\2\2\2\u0170\u0171"+
 		"\7.\2\2\u0171H\3\2\2\2\u0172\u0173\7,\2\2\u0173J\3\2\2\2\u0174\u0175\7"+
 		"\'\2\2\u0175L\3\2\2\2\u0176\u0177\7\61\2\2\u0177N\3\2\2\2\u0178\u0179"+
@@ -532,7 +531,7 @@ public class DMLexer extends Lexer {
 		"\u0201\u00a0\3\2\2\2\u0202\u0205\5\u00a3R\2\u0203\u0205\5\u00a5S\2\u0204"+
 		"\u0202\3\2\2\2\u0204\u0203\3\2\2\2\u0205\u00a2\3\2\2\2\u0206\u0207\n\5"+
 		"\2\2\u0207\u00a4\3\2\2\2\u0208\u0209\7^\2\2\u0209\u020d\13\2\2\2\u020a"+
-		"\u020b\7^\2\2\u020b\u020d\5\3\2\2\u020c\u0208\3\2\2\2\u020c\u020a\3\2"+
+		"\u020b\7^\2\2\u020b\u020d\5\13\6\2\u020c\u0208\3\2\2\2\u020c\u020a\3\2"+
 		"\2\2\u020d\u00a6\3\2\2\2\u020e\u0211\5\u00a9U\2\u020f\u0211\5\u00b9]\2"+
 		"\u0210\u020e\3\2\2\2\u0210\u020f\3\2\2\2\u0211\u00a8\3\2\2\2\u0212\u0216"+
 		"\5\u00abV\2\u0213\u0216\5\u00adW\2\u0214\u0216\5\u00afX\2\u0215\u0212"+
@@ -571,10 +570,10 @@ public class DMLexer extends Lexer {
 		"\2\2\2\u0274\u0273\3\2\2\2\u0275\u0278\3\2\2\2\u0276\u0277\3\2\2\2\u0276"+
 		"\u0274\3\2\2\2\u0277\u0279\3\2\2\2\u0278\u0276\3\2\2\2\u0279\u027a\7,"+
 		"\2\2\u027a\u027b\7\61\2\2\u027b\u00c6\3\2\2\2\u027c\u027d\13\2\2\2\u027d"+
-		"\u00c8\3\2\2\2!\2\u00cc\u00d0\u00d3\u00d5\u01dc\u01e1\u01e7\u01ef\u01f1"+
+		"\u00c8\3\2\2\2!\2\u00d8\u00dc\u00df\u00e1\u01dc\u01e1\u01e7\u01ef\u01f1"+
 		"\u01fc\u0204\u020c\u0210\u0215\u021b\u021f\u0227\u022d\u023c\u0240\u0245"+
-		"\u0249\u024e\u0252\u0257\u025c\u0262\u026b\u026d\u0276\b\3\2\2\3\36\3"+
-		"\3\37\4\3 \5\3!\6\2\3\2";
+		"\u0249\u024e\u0252\u0257\u025c\u0262\u026b\u026d\u0276\b\3\2\2\3\3\3\3"+
+		"\4\4\3\5\5\3\6\6\2\3\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

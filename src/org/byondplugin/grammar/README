@@ -1,0 +1,26 @@
+If you want to recreate DMHighlightingLexer.java, DMIndentingLexer.java and DMParser.Java then:
+
+$ antlr4 -o path_to_gen_org_byondplugin -package org.byondplugin DMHighlightingLexer.g4
+$ antlr4 -o path_to_gen_org_byondplugin -package org.byondplugin DMIndentingLexer.g4
+$ antlr4 -o path_to_gen_org_byondplugin -package org.byondplugin -no-listener -visitor DMParser.g4
+
+If you want to test grammar:
+
+$ antlr4 -o path_to_gen_org_byondplugin DMIndentingLexer.g4
+$ antlr4 -o path_to_gen_org_byondplugin -no-listener -visitor DMParser.g4
+$ cd path_to_gen_org_byondplugin
+$ javac *.java
+$ grun DM start testfile.dm -tokens
+$ grun DM start testfile.dm -gui
+
+/*
+antlr4 -o C:\Users\kisio\IdeaProjects\byond-intellij\gen\org\byondplugin -package org.byondplugin C:\Users\kisio\IdeaProjects\byond-intellij\src\org\byondplugin\grammar\DMHighlightingLexer.g4
+antlr4 -o C:\Users\kisio\IdeaProjects\byond-intellij\gen\org\byondplugin -package org.byondplugin C:\Users\kisio\IdeaProjects\byond-intellij\src\org\byondplugin\grammar\DMIndentingLexer.g4
+antlr4 -o C:\Users\kisio\IdeaProjects\byond-intellij\gen\org\byondplugin -package org.byondplugin -no-listener C:\Users\kisio\IdeaProjects\byond-intellij\src\org\byondplugin\grammar\DMParser.g4
+
+
+
+antlr4 -o C:\Users\kisio\IdeaProjects\byond-intellij\gen\org\byondplugin -no-listener -visitor C:\Users\kisio\IdeaProjects\byond-intellij\src\org\byondplugin\grammar\DM.g4
+javac *.java
+grun DM start testfile.dm -tokens
+*/
