@@ -1,3 +1,22 @@
+mob
+    var
+        age
+        name
+
+    Login()
+        ..()
+        src.age = 25
+        src.name = "Johny Bravo" // super cool name
+        world << "Hello [src.name]"
+
+    Logout()
+        ..()
+        del(M)
+
+    proc
+        GetName()
+            return src.name
+
 proc
 	dupa()
 		world << "Hello"

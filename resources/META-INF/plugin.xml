@@ -1,5 +1,5 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
+  <id>org.byondplugin</id>
   <name>Intellij BYOND Support</name>
   <version>1.0</version>
   <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
@@ -28,8 +28,14 @@
     <fileTypeFactory implementation="org.byondplugin.DMFileTypeFactory"/>
     <lang.parserDefinition language="DM" implementationClass="org.byondplugin.DMParserDefinition"/>
     <lang.syntaxHighlighterFactory language="DM" implementationClass="org.byondplugin.DMSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="org.byondplugin.DMColorSettingsPage"/>
+
 
     <langCodeStyleSettingsProvider implementation="org.byondplugin.ide.DMCodeStyleSettingsProvider"/>
+
+    <!--<projectViewPane implementation="org.byondplugin.ide.DMImagesProjectViewPane"/>-->
+    <!--<projectViewPane implementation="com.intellij.ide.projectView.SelectableTreeStructureProvider"/>-->
+    <!--<treeStructureProvider implementation="org.byondplugin.ide.TextOnlyTreeStructureProvider"/>-->
   </extensions>
 
   <actions>
