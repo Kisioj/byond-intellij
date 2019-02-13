@@ -30,7 +30,7 @@ public class DMParser extends Parser {
 		MULT_ASSIGN=67, DIV_ASSIGN=68, MOD_ASSIGN=69, BIT_AND_ASSIGN=70, BIT_OR_ASSIGN=71, 
 		XOR_ASSIGN=72, LEFT_SHIFT_ASSIGN=73, RIGHT_SHIFT_ASSIGN=74, SEMICOLON=75, 
 		NAME=76, STRING_LITERAL=77, ICON_PATH=78, NUMBER=79, SPACES=80, INLINE_COMMENT=81, 
-		MULTILINE_COMMENT=82, UNKNOWN_CHAR=83;
+		UNKNOWN_CHAR=82, MULTILINE_COMMENT=83, MULTILINE_COMMENT_START=84;
 	public static final int
 		RULE_start = 0, RULE_var_stmt = 1, RULE_var_path = 2, RULE_vardef = 3, 
 		RULE_inline_var_stmt = 4, RULE_inline_var_path = 5, RULE_classdef = 6, 
@@ -76,7 +76,7 @@ public class DMParser extends Parser {
 		"MULT_ASSIGN", "DIV_ASSIGN", "MOD_ASSIGN", "BIT_AND_ASSIGN", "BIT_OR_ASSIGN", 
 		"XOR_ASSIGN", "LEFT_SHIFT_ASSIGN", "RIGHT_SHIFT_ASSIGN", "SEMICOLON", 
 		"NAME", "STRING_LITERAL", "ICON_PATH", "NUMBER", "SPACES", "INLINE_COMMENT", 
-		"MULTILINE_COMMENT", "UNKNOWN_CHAR"
+		"UNKNOWN_CHAR", "MULTILINE_COMMENT", "MULTILINE_COMMENT_START"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -3048,7 +3048,7 @@ public class DMParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3U\u01d8\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3V\u01d8\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+

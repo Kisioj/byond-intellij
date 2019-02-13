@@ -156,7 +156,14 @@ SPACES
 
 
 INLINE_COMMENT : '//' ( STRING_ESCAPE_SEQ | ~[\\\r\n\f] )* -> channel(HIDDEN);
-MULTILINE_COMMENT : '/*' .*? ('*/' | EOF) -> channel(HIDDEN);
+
+MULTILINE_COMMENT_START : '/*' -> more, pushMode(MULTILINE_COMMENT_MODE);
 
 
 UNKNOWN_CHAR: .  -> channel(HIDDEN);
+
+
+mode MULTILINE_COMMENT_MODE;
+MULTILINE_COMMENT_START_NESTED : '/*' -> more, pushMode(MULTILINE_COMMENT_MODE);
+MULTILINE_COMMENT: ('*/' | EOF) -> popMode, channel(HIDDEN);
+IGNORE : . -> more;
