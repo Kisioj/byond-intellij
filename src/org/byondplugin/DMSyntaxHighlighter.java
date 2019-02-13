@@ -44,8 +44,11 @@ public class DMSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey STRING =
             createTextAttributesKey("DM_STRING", DefaultLanguageHighlighterColors.STRING);
 
-    public static final TextAttributesKey COMMENT =
-            createTextAttributesKey("DM_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
+    public static final TextAttributesKey INLINE_COMMENT =
+            createTextAttributesKey("DM_INLINE_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
+
+    public static final TextAttributesKey MULTILINE_COMMENT =
+            createTextAttributesKey("DM_MULTILINE_COMMENT", DefaultLanguageHighlighterColors.BLOCK_COMMENT);
 
     public static final TextAttributesKey NUMBER =
             createTextAttributesKey("DM_NUMBER", DefaultLanguageHighlighterColors.NUMBER);
@@ -53,7 +56,7 @@ public class DMSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey BAD_CHARACTER =
             createTextAttributesKey("DM_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
 
-    /*
+
     static {
         PSIElementTypeFactory.defineLanguageIElementTypes(
                 DMLanguage.INSTANCE,
@@ -61,8 +64,6 @@ public class DMSyntaxHighlighter extends SyntaxHighlighterBase {
                 DMParser.ruleNames
         );
     }
-    */
-
 
     @NotNull
     @Override
@@ -185,8 +186,12 @@ public class DMSyntaxHighlighter extends SyntaxHighlighterBase {
                 attrKey = NUMBER;
                 break;
 
-            case DMHighlightingLexer.COMMENT:
-                attrKey = COMMENT;
+            case DMHighlightingLexer.INLINE_COMMENT:
+                attrKey = INLINE_COMMENT;
+                break;
+
+            case DMHighlightingLexer.MULTILINE_COMMENT:
+                attrKey = MULTILINE_COMMENT;
                 break;
 
             default:

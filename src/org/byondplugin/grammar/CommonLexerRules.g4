@@ -155,20 +155,8 @@ SPACES
  ;
 
 
-COMMENT
- : (INLINE_COMMENT | MULTILINE_COMMENT) -> channel(HIDDEN)
- ;
-
-fragment INLINE_COMMENT
- : '//' ( STRING_ESCAPE_SEQ | ~[\\\r\n\f] )*
- ;
+INLINE_COMMENT : '//' ( STRING_ESCAPE_SEQ | ~[\\\r\n\f] )* -> channel(HIDDEN);
+MULTILINE_COMMENT : '/*' .*? ('*/' | EOF) -> channel(HIDDEN);
 
 
-fragment MULTILINE_COMMENT
- : '/*' .*? '*/'
- ;
-
-
-UNKNOWN_CHAR
- : .
- ;
+UNKNOWN_CHAR: .  -> channel(HIDDEN);

@@ -4,13 +4,10 @@ import com.intellij.lang.ASTNode;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
 import com.intellij.lexer.Lexer;
-import com.intellij.openapi.editor.ex.util.LexerEditorHighlighter;
-import com.intellij.openapi.editor.ex.util.SegmentArrayWithData;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.TokenType;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.IFileElementType;
 import com.intellij.psi.tree.TokenSet;
@@ -27,6 +24,7 @@ import org.byondplugin.psi.DMFile;
 import org.byondplugin.psi.nodes.*;
 import org.jetbrains.annotations.NotNull;
 
+
 public class DMParserDefinition implements ParserDefinition {
     public static final IFileElementType FILE = new IFileElementType(DMLanguage.INSTANCE);
 
@@ -41,7 +39,8 @@ public class DMParserDefinition implements ParserDefinition {
     public static final TokenSet COMMENTS =
             PSIElementTypeFactory.createTokenSet(
                     DMLanguage.INSTANCE,
-                    DMIndentingLexer.COMMENT
+                    DMIndentingLexer.INLINE_COMMENT,
+                    DMIndentingLexer.MULTILINE_COMMENT
             );
 
     public static final TokenSet WHITE_SPACES =
