@@ -1,11 +1,14 @@
 package org.byondplugin.psi.nodes;
 
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.IElementType;
 import org.antlr.intellij.adaptor.psi.ANTLRPsiNode;
+import org.antlr.intellij.adaptor.psi.IdentifierDefSubtree;
 import org.jetbrains.annotations.NotNull;
 
-public class ClassDef extends ANTLRPsiNode {
-    public ClassDef(@NotNull ASTNode node) {
-        super(node);
+public class ClassDef extends IdentifierDefSubtree {
+    public ClassDef(@NotNull ASTNode node, @NotNull IElementType idElementType) {
+
+        super(node, idElementType);
     }
 }

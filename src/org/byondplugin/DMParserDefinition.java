@@ -24,9 +24,12 @@ import org.byondplugin.psi.DMFile;
 import org.byondplugin.psi.nodes.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 
 public class DMParserDefinition implements ParserDefinition {
     public static final IFileElementType FILE = new IFileElementType(DMLanguage.INSTANCE);
+    public static TokenIElementType ID;
 
     static {
         PSIElementTypeFactory.defineLanguageIElementTypes(
@@ -34,6 +37,9 @@ public class DMParserDefinition implements ParserDefinition {
                 DMParser.tokenNames,
                 DMParser.ruleNames
         );
+
+        List<TokenIElementType> tokenIElementTypes = PSIElementTypeFactory.getTokenIElementTypes(DMLanguage.INSTANCE);
+        ID = tokenIElementTypes.get(DMIndentingLexer.NAME);
     }
 
     public static final TokenSet COMMENTS =
@@ -124,13 +130,13 @@ public class DMParserDefinition implements ParserDefinition {
             case DMParser.RULE_var_path:
                 return new VarPath(node);
             case DMParser.RULE_vardef:
-                return new VarDef(node);
+                return new VarDef(node, elType);
             case DMParser.RULE_inline_var_stmt:
                 return new InlineVarStmt(node);
             case DMParser.RULE_inline_var_path:
                 return new InlineVarPath(node);
             case DMParser.RULE_classdef:
-                return new ClassDef(node);
+                return new ClassDef(node, elType);
             case DMParser.RULE_class_body:
                 return new ClassBody(node);
             case DMParser.RULE_funcdefs:
@@ -138,11 +144,11 @@ public class DMParserDefinition implements ParserDefinition {
             case DMParser.RULE_func_type:
                 return new FuncType(node);
             case DMParser.RULE_funcdef:
-                return new FuncDef(node);
+                return new FuncDef(node, elType);
             case DMParser.RULE_parameters:
                 return new Parameters(node);
             case DMParser.RULE_parameter:
-                return new Parameter(node);
+                return new Parameter(node, elType);
             case DMParser.RULE_suite:
                 return new Suite(node);
             case DMParser.RULE_stmt:
@@ -190,7 +196,7 @@ public class DMParserDefinition implements ParserDefinition {
             case DMParser.RULE_path:
                 return new Path(node);
             case DMParser.RULE_name:
-                return new Name(node);
+                return new Name(node, elType);
             default:
                 return new ANTLRPsiNode(node);
         }

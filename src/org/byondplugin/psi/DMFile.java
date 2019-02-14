@@ -3,10 +3,13 @@ package org.byondplugin.psi;
 import com.intellij.extapi.psi.PsiFileBase;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.FileViewProvider;
-import org.byondplugin.*;
+import org.byondplugin.DMFileType;
+import org.byondplugin.DMLanguage;
 import org.jetbrains.annotations.NotNull;
 
+
 import javax.swing.*;
+
 
 public class DMFile extends PsiFileBase {
     public DMFile(@NotNull FileViewProvider viewProvider) {

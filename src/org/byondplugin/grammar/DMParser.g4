@@ -16,6 +16,7 @@ var_path
  | vardef NEWLINE
  ;
 
+
 vardef
  :  NAME ('=' expr)?
  ;
@@ -91,11 +92,11 @@ expr
     | expr '||' expr                                                                        #logor_expr
     | expr '?' expr ':' expr                                                                #tenary_expr
 
-    | expr 'as' NAME  # as_expr
-    | expr 'in' expr  # in_expr
+    | expr 'as' NAME                                                                        #as_expr
+    | expr 'in' expr                                                                        #in_expr
 
     | expr ('=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '<<=' | '>>=') expr      #assign_expr
-    | new_stmt expr? # new_expr
+    | new_stmt expr?                                                                        #new_expr
     | value                                                                                 #val_expr
     ;
 
@@ -109,5 +110,5 @@ value: STRING_LITERAL | ICON_PATH | NUMBER | NAME | path | '..' | '.';
 
 
 new_stmt: 'new' path?;  // implicit type (when empty path) may only be used in an assignment
-path: ('/' name)+ '/'?;
-name: NAME | 'proc' | 'verb';
+path: ('/' (name | func_type) )+ '/'?;
+name: NAME;
