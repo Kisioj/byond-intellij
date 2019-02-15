@@ -30,7 +30,12 @@
     <lang.syntaxHighlighterFactory language="DM" implementationClass="org.byondplugin.DMSyntaxHighlighterFactory"/>
     <colorSettingsPage implementation="org.byondplugin.DMColorSettingsPage"/>
 
-    <lang.psiStructureViewFactory language="DM" implementationClass="org.byondplugin.structView.DMStructureViewFactory"/>
+
+    <lang.ast.factory language="DM" implementationClass="org.byondplugin.DMASTFactory"/>
+    <!--<lang.findUsagesProvider language="DM" implementationClass="org.byondplugin.DMFindUsagesProvider"/>-->
+
+
+    <!--<lang.psiStructureViewFactory language="DM" implementationClass="org.byondplugin.structView.DMStructureViewFactory"/>-->
 
     <langCodeStyleSettingsProvider implementation="org.byondplugin.ide.DMCodeStyleSettingsProvider"/>
 

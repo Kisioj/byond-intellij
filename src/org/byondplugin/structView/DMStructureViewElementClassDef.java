@@ -44,11 +44,6 @@ public class DMStructureViewElementClassDef extends DMStructureViewElement {
                 treeElements.add(new DMStructureViewElementClassDef((ClassDef) element));
             }
 
-
-            for(PsiElement element: XPath.findAll(DMLanguage.INSTANCE, element, "/classdef/class_body/vardef")) {
-                treeElements.add(new DMStructureViewElementVarDef((VarDef) element));
-            }
-
             List<PsiElement> varPaths = new SmartList<>();
             varPaths.addAll(XPath.findAll(DMLanguage.INSTANCE, element, "/classdef/class_body/var_stmt/var_path"));
 

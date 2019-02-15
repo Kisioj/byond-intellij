@@ -29,7 +29,7 @@ import java.util.List;
 
 public class DMParserDefinition implements ParserDefinition {
     public static final IFileElementType FILE = new IFileElementType(DMLanguage.INSTANCE);
-    public static TokenIElementType ID;
+    public static TokenIElementType NAME;
 
     static {
         PSIElementTypeFactory.defineLanguageIElementTypes(
@@ -39,7 +39,7 @@ public class DMParserDefinition implements ParserDefinition {
         );
 
         List<TokenIElementType> tokenIElementTypes = PSIElementTypeFactory.getTokenIElementTypes(DMLanguage.INSTANCE);
-        ID = tokenIElementTypes.get(DMIndentingLexer.NAME);
+        NAME = tokenIElementTypes.get(DMIndentingLexer.NAME);
     }
 
     public static final TokenSet COMMENTS =
@@ -185,8 +185,14 @@ public class DMParserDefinition implements ParserDefinition {
                 return new ReturnStmt(node);
             case DMParser.RULE_expr:
                 return new Expr(node);
-            case DMParser.RULE_trailer:
-                return new Trailer(node);
+            case DMParser.RULE_func_trailer:
+                return new FuncTrailer(node);
+            case DMParser.RULE_func_call:
+                return new FuncCall(node);
+            case DMParser.RULE_attr_trailer:
+                return new AttrTrailer(node);
+            case DMParser.RULE_index_trailer:
+                return new IndexTrailer(node);
             case DMParser.RULE_arglist:
                 return new ArgList(node);
             case DMParser.RULE_value:
@@ -195,8 +201,8 @@ public class DMParserDefinition implements ParserDefinition {
                 return new NewStmt(node);
             case DMParser.RULE_path:
                 return new Path(node);
-            case DMParser.RULE_name:
-                return new Name(node, elType);
+            case DMParser.RULE_attr_assignment:
+                return new AttrAssignment(node);
             default:
                 return new ANTLRPsiNode(node);
         }

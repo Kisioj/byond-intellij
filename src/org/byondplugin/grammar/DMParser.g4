@@ -17,10 +17,8 @@ var_path
  ;
 
 
-vardef
- :  NAME ('=' expr)?
- ;
-
+vardef: NAME ('=' expr)?;
+attr_assignment: NAME '=' expr;
 
 
 inline_var_stmt: 'var' '/' inline_var_path;  // can be used in for loop
@@ -34,7 +32,7 @@ classdef
  : NAME NEWLINE INDENT class_body+ DEDENT
  | NAME '/' class_body
  ;
-class_body: var_stmt | funcdefs | classdef | vardef NEWLINE;
+class_body: var_stmt | funcdefs | classdef | attr_assignment NEWLINE;
 
 
 funcdefs
@@ -79,7 +77,9 @@ return_stmt: 'return' expr?;
 
 expr
     : '(' expr ')'                                                                          #bracket_expr
-    | expr trailer                                                                          #trailer_expr
+    | expr func_trailer                                                                     #func_trailer_expr
+    | expr index_trailer                                                                    #index_trailer_expr
+    | expr attr_trailer                                                                     #attr_trailer_expr
     | ('~' | '!' | '-' | '++' | '--') expr                                                  #onearg_expr
     | '**' expr                                                                             #power_expr
     | expr ('*' | '/' | '%') expr                                                           #mult_expr
@@ -100,15 +100,18 @@ expr
     | value                                                                                 #val_expr
     ;
 
-trailer: '(' (arglist)? ')' | '[' expr ']' | ('.' | ':') NAME;
+
+func_trailer: '(' arglist? ')';
+index_trailer: '[' expr ']';
+attr_trailer: ('.' | ':') NAME;
 arglist: expr (',' expr)*  (',')?;
 
 
+func_call: NAME attr_trailer* func_trailer;
+value: func_call | STRING_LITERAL | ICON_PATH | NUMBER | NAME | path | '..' | '.';
 
 
-value: STRING_LITERAL | ICON_PATH | NUMBER | NAME | path | '..' | '.';
 
 
 new_stmt: 'new' path?;  // implicit type (when empty path) may only be used in an assignment
-path: ('/' (name | func_type) )+ '/'?;
-name: NAME;
+path: ('/' (NAME | func_type) )+ '/'?;
