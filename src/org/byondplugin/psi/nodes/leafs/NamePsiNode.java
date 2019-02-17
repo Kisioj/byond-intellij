@@ -11,8 +11,7 @@ import org.antlr.intellij.adaptor.psi.Trees;
 
 import org.byondplugin.DMLanguage;
 import org.byondplugin.DMParserDefinition;
-import org.byondplugin.psi.DMFunctionReference;
-import org.byondplugin.psi.DMVariableReference;
+import org.byondplugin.psi.*;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 
@@ -106,22 +105,20 @@ public class NamePsiNode extends ANTLRPsiLeafNode implements PsiNamedElement {
         if ( elType instanceof RuleIElementType ) {
             switch ( ((RuleIElementType) elType).getRuleIndex() ) {
 
+                case RULE_var_path:
+                    return new DMReferenceClass(this);
+
                 case RULE_func_call:
-                    return new DMFunctionReference(this);
+                    return new DMReferenceFunction(this);
+
+                case RULE_attribute:
+                    return new DMReferenceAttribute(this);
+
+                case RULE_method_call:
+                    return new DMReferenceMethod(this);
 
                 case RULE_value:
-                    return new DMVariableReference(this);
-
-
-
-                    /*
-                    case RULE_statement :
-				case RULE_expr :
-				case RULE_primary :
-					return new VariableRef(this);
-				case RULE_call_expr :
-					return new FunctionRef(this);
-                     */
+                    return new DMReferenceVariable(this);
             }
         }
         return null;

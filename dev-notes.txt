@@ -39,3 +39,8 @@ SPOSÓB DZIAŁANIA, METODY (np. x.func())
     1. CTRL + click na referencje (func)
     2. Znajdź definicje x (jezeli jest wiecej atrybutów po kropkach to zaczynaj od lewej) i odczytaj jego klase
     3. We wszystkich plikach po kolei szukaj tej klasy i definicji tego atrybutu póki nie znajdziesz.
+
+
+SPOSÓB DZIAŁANIA, KLASY (np. var/mob/M)
+    1. CTRL + click na referencje (mob)
+    2. Znajdź klase w obecnym pliku, a pozniej w innych?

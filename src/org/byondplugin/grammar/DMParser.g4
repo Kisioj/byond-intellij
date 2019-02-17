@@ -107,8 +107,10 @@ attr_trailer: ('.' | ':') NAME;
 arglist: expr (',' expr)*  (',')?;
 
 
-func_call: NAME attr_trailer* func_trailer;
-value: func_call | STRING_LITERAL | ICON_PATH | NUMBER | NAME | path | '..' | '.';
+func_call: NAME func_trailer;
+method_call: (NAME ('.' | ':'))+ func_call;
+attribute: (NAME ('.' | ':'))+ NAME;
+value: func_call | method_call | attribute | STRING_LITERAL | ICON_PATH | NUMBER | NAME | path | '..' | '.';
 
 
 

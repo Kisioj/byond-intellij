@@ -203,6 +203,10 @@ public class DMParserDefinition implements ParserDefinition {
                 return new Path(node);
             case DMParser.RULE_attr_assignment:
                 return new AttrAssignment(node);
+            case DMParser.RULE_method_call:
+                return new MethodCall(node);
+            case DMParser.RULE_attribute:
+                return new Attribute(node);
             default:
                 return new ANTLRPsiNode(node);
         }
