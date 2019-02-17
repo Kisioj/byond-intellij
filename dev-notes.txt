@@ -1,0 +1,41 @@
+TYPY REFERENCJI:
+    1. do zmiennej (lokalnej / globalnej)
+    2. do klasy / subklasy
+    3. do funkcji / metody
+    4. do zmiennej / klasy / funkcji w innym pliku
+
+Do przeszukiwania innych plików można użyć File-indices i stubs http://www.jetbrains.org/intellij/sdk/docs/basics/indexing_and_psi_stubs.html?search=index#indices
+Wtedy po prostu zamiast przeszukiwać wszystkich plików to przeszukamy tylko te, w których znajdują się odpowiednie rzeczy.
+Póki tego nie będzie to będzie trzeba po prostu przeszukiwać inne pliki.
+
+ROZRÓŻNIENIE REFERENCJI:
+Należy rozróżnić, które elementy to są referencje do zmiennych, które do klas, a które do funkcji:
+    1. do klasy: w definicji zmiennej w typie, w 'as expr'.
+    2. do funkcji: gdy wystapi function_call
+    3. do zmiennej: w pozostalych przypadkach.
+
+SPOSÓB DZIAŁANIA, ZMIENNE (np. x):
+    1. CTRL + click na referencje
+    2. Jeżeli kontekst globalny to szukaj we wszystkich plikach po kolei, wg. kolejności z dme.
+    3. Jeżeli kontekst lokalny to szukaj w:
+        a) kotekście
+        b) w atrybutach klasy w tym i innych plikach
+        c) w atrybutach nadklasy w tym i innych plikach (POWTÓRZ)
+        d) w kotekście globalnym wg. kolejności z dme.
+
+SPOSÓB DZIAŁANIA, ATRYBUTY (np. x.attr):
+    1. CTRL + click na referencje (attr)
+    2. Znajdź definicje x (jezeli jest wiecej atrybutów po kropkach to zaczynaj od lewej) i odczytaj jego klase
+    3. We wszystkich plikach po kolei szukaj tej klasy i definicji tego atrybutu póki nie znajdziesz.
+
+SPOSÓB DZIAŁANIA, FUNKCJE (np. func()):
+    1. CTRL + click na referencje
+    2. Jeżeli kontekst globalny (wywolanie w funkcji globalnej) to szukaj we wszystkich plikach po kolei, wg. kolejności z dme.
+    3. Jeżeli kontekst lokalny (wywołanie w jakiejś metodzie) to szukaj najpierw czy ta klasa ma taką metodę, czyli
+    zobacz w jakiej klasie jesteśmy, a potem w różnych plikach szukaj w tej klasie tej metody. Jak nie znajdziesz to szukaj w nadklasach,
+    a potem w kontekście globalnym.
+
+SPOSÓB DZIAŁANIA, METODY (np. x.func())
+    1. CTRL + click na referencje (func)
+    2. Znajdź definicje x (jezeli jest wiecej atrybutów po kropkach to zaczynaj od lewej) i odczytaj jego klase
+    3. We wszystkich plikach po kolei szukaj tej klasy i definicji tego atrybutu póki nie znajdziesz.
